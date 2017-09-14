@@ -1,0 +1,53 @@
+[
+    {
+        "text": "<svg version=\"1.1\" id=\"Capa_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 495.018 495.018\" style=\"enable-background:new 0 0 495.018 495.018;\" xml:space=\"preserve\">\n<g>\n\t<g>\n\t\t<g>\n\t\t\t<path d=\"M482.509,110.509c-23-52-73-86-126-86c-54,0-89,24-109,50c-20-26-55-50-109-50\n\t\t\t\tc-53,0-103,34-126,86c-24,54-13,113,29,160c101,113,190,193,191,194c4,4,10,6,15,6s10-2,14-6c1-1,91-81,192-194\n\t\t\t\tC495.509,223.509,506.509,164.509,482.509,110.509z M421.509,241.509c-76,84-145,151-174,178c-29-27-98-94-174-178\n\t\t\t\tc-30-34-38-75-21-113c16-36,50-60,86-60c70,0,86,52,88,58c2,10,11,16,21,16s19-6,21-16c1-2,16-58,88-58c36,0,70,24,86,60\n\t\t\t\tC459.509,166.509,451.509,207.509,421.509,241.509z\"/>\n\t\t\t\n\t\t</g>\n\t</g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n</svg>\n",
+        "bag": "default",
+        "revision": "0",
+        "type": "text/vnd.tiddlywiki",
+        "title": "$:/core/images/heart",
+        "tags": "$:/tags/Image",
+        "modified": "20161106063431906",
+        "created": "20161106062441112"
+    },
+    {
+        "created": "20161024111352944",
+        "text": "hide",
+        "title": "$:/config/EditTemplateFields/Visibility/status",
+        "modifier": "Venomspinner",
+        "modified": "20161106070655077",
+        "creator": "Venomspinner"
+    },
+    {
+        "created": "20161106065309339",
+        "creator": "Riz",
+        "text": "/* ViewToolbar Button */\n\n .zaahbtn{ fill:#c4c4c4;} .zaahbtn:hover { color:#888; }\n\n/* ViewToolbar Heart */\n\n.tc-tiddler-view-frame .tc-tiddler-controls button.zaahbtnheart.tc-btn-invisible svg { fill:red; !mportant} ",
+        "title": "$:/BookmarkButton/Stylesheet",
+        "tags": "$:/tags/Stylesheet",
+        "modified": "20170105073914410",
+        "status": "",
+        "modifier": "Riz"
+    },
+    {
+        "created": "20161106065509132",
+        "creator": "Riz",
+        "text": "<$list filter=\"[status[Bookmark]]\"/>\n\n",
+        "title": "$:/Bookmarks",
+        "modified": "20170105074745743",
+        "modifier": "Riz",
+        "caption": "Bookmarks",
+        "tags": "$:/tags/SideBar"
+    },
+    {
+        "created": "20161024142714655",
+        "creator": "Venomspinner",
+        "text": "<$reveal type=\"nomatch\" state=!!status text=Bookmark>\n<$button tooltip=\"Bookmark this note\" aria-label=\"Bookmark\" class=\"zaahbtn tc-btn-invisible\">\n<span>{{$:/core/images/heart}}</span>\n<$list filter=\"[<tv-config-toolbar-text>prefix[yes]]\">\n<span class=\"tc-btn-text\"><$text text=\"Bookmark\"/></span>\n</$list>\n<$action-setfield $field=\"status\" $value=\"Bookmark\"/>\n</$button>\n</$reveal>\n<$set name=\"tv-config-toolbar-class\" value=\"zaahbtnheart\">\n<$reveal type=\"match\" state=!!status text=Bookmark>\n<$button tooltip=\"Remove Bookmark of this note\" aria-label=\"Bookmark\" class=\"zaahbtnheart tc-btn-invisible\" style=\"fill:red; color:red;\">\n<span style=\"fill:red; color:red;\">{{$:/core/images/heart}}</span>\n<$list filter=\"[<tv-config-toolbar-text>prefix[yes]]\">\n<span class=\"tc-btn-text\"><$text text=\"Bookmark\"/></span>\n</$list>\n<$action-setfield $field=\"status\" $value=\"\"/>\n</$button>\n</$reveal></$set>\n",
+        "bag": "default",
+        "revision": "37",
+        "type": "text/vnd.tiddlywiki",
+        "title": "$:/BookmarkButton",
+        "status": "",
+        "modifier": "Riz",
+        "modified": "20170105074745741",
+        "tags": "$:/tags/ViewToolbar"
+    }
+]

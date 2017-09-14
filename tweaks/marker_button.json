@@ -1,0 +1,28 @@
+[
+    {
+        "created": "20161106052423971",
+        "title": "$:/tesseract/images/marker",
+        "type": "image/svg+xml",
+        "text": "<svg version=\"1.1\" id=\"Layer_1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\"\n\t viewBox=\"0 0 512 512\" style=\"enable-background:new 0 0 512 512;\" xml:space=\"preserve\" class=\"tc-image-bold tc-image-button\" width=\"16pt\" height=\"13pt\" >\n<g>\n\t<g>\n\t\t\n\t\t\t<rect x=\"163.641\" y=\"169.453\" transform=\"matrix(0.7071 -0.7071 0.7071 0.7071 -128.5961 261.109)\" width=\"174.495\" height=\"232.66\"/>\n\t</g>\n</g>\n<g>\n\t<g>\n\t\t\n\t\t\t<rect x=\"384.631\" y=\"99.711\" transform=\"matrix(0.7071 -0.7071 0.7071 0.7071 40.0328 330.9679)\" width=\"69.798\" height=\"34.899\"/>\n\t</g>\n</g>\n<g>\n\t<g>\n\t\t<path d=\"M501.779,150.062l-20.565-20.565l-74.033,74.033l-74.032-74.033l74.032-74.033l-20.565-20.564\n\t\t\tc-13.629-13.629-35.727-13.629-49.355-0.001l-82.259,82.259L419.52,281.675l82.259-82.259\n\t\t\tC515.407,185.788,515.406,163.69,501.779,150.062z\"/>\n\t</g>\n</g>\n<g>\n\t<g>\n\t\t<path d=\"M82.258,289.9l-32.903,32.904c31.803,31.8,31.802,83.362,0.001,115.161L0,487.323h98.711\n\t\t\tc31.802-31.803,83.362-31.803,115.162,0l32.903-32.904L82.258,289.9z\"/>\n\t</g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n<g>\n</g>\n</svg>\n",
+        "modified": "20170117083449187",
+        "tags": "$:/tags/Image"
+    },
+    {
+        "created": "20170117083345832",
+        "text": "mark.roundedmark {\n\tbackground: bisque;\n\tpadding: 0 8px;\n\tborder-radius: 1em;\n}",
+        "title": "$:/tesseract/stylesheets/marker",
+        "tags": "$:/tags/Stylesheet",
+        "modified": "20170117083538120"
+    },
+    {
+        "created": "20161106053808448",
+        "modified": "20170117110345894",
+        "text": "<$action-sendmessage\n\t$message=\"tm-edit-text-operation\"\n\t$param=\"wrap-selection\"\n\tprefix=\"\"\"<mark class=\"roundedmark\">\"\"\"\n\tsuffix=\"</mark>\"\n/>\n",
+        "title": "$:/tesseract/ui/EditorToolbar/marker",
+        "tags": "$:/tags/EditorToolbar",
+        "icon": "$:/tesseract/images/marker",
+        "caption": "Marker",
+        "description": "Marks the selected text",
+        "condition": "[<targetTiddler>!has[type]] [<targetTiddler>type[text/vnd.tiddlywiki]]"
+    }
+]

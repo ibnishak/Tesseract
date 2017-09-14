@@ -1,0 +1,16 @@
+[
+    {
+        "created": "20170108111615683",
+        "text": ".tc-sidebar-scrollable {\n\tposition: fixed;\n\ttop: 0px;\n\tleft: 0;\n\tbottom: 0;\n\tmargin: 0 0 0 10px;\n\tpadding: 70px 0 28px 40px;\n}\n.tc-story-river {\n\tleft: 340px;\n\tbackground: #F4F4F4;\n\twidth: calc(100% - 400px);\n}\n<$reveal state=\"$:/state/sidebar\" type=\"match\" text=\"no\">\n.tc-story-river {\n\tleft: 0px;\n        width:100%;\n}\n</$reveal>\n",
+        "title": "$:/tesseract/LeftSidebar",
+        "tags": "$:/tags/Stylesheet",
+        "modified": "20170118131732168"
+    },
+    {
+        "created": "20170118132617891",
+        "title": "$:/core/ui/TopBar/menu",
+        "text": "<$reveal state=\"$:/state/sidebar\" type=\"nomatch\" text=\"no\">\n<$button set=\"$:/state/sidebar\" setTo=\"no\" tooltip={{$:/language/Buttons/HideSideBar/Hint}} aria-label={{$:/language/Buttons/HideSideBar/Caption}} class=\"tc-btn-invisible\">{{$:/core/images/chevron-right}}</$button>\n</$reveal>\n<$reveal state=\"$:/state/sidebar\" type=\"match\" text=\"no\">\n<$button set=\"$:/state/sidebar\" setTo=\"yes\" tooltip={{$:/language/Buttons/ShowSideBar/Hint}} aria-label={{$:/language/Buttons/ShowSideBar/Caption}} class=\"tc-btn-invisible\">{{$:/core/images/chevron-left}}</$button>\n</$reveal>\n",
+        "modified": "20170118132617891",
+        "tags": "$:/tags/TopLeftBar"
+    }
+]
