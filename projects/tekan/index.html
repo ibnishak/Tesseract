@@ -178,6 +178,8 @@ Error message and password prompt
 
 <li>$:/state/newlisttemp</li>
 
+<li>$:/state/plugin-info--1617947196-$:/plugins/tesseract/tekan---1171297139</li>
+
 <li>$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan</li>
 
 <li>$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan---1529199568</li>
@@ -8550,7 +8552,7 @@ Error message and password prompt
 &lt;/span&gt;
 &lt;/$button&gt;</pre>
 </div>
-<div created="20170918205648927" creator="Riz" modified="20170920013711527" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/alerts">
+<div created="20170918205648927" creator="Riz" modified="20170920092537488" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/alerts">
 <pre>&lt;div class=&quot;tc-alerts&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/Alert]!has[draft.of]]&quot; template=&quot;$:/core/ui/AlertTemplate&quot; storyview=&quot;pop&quot;/&gt;
@@ -8558,7 +8560,7 @@ Error message and password prompt
 &lt;/div&gt;
 </pre>
 </div>
-<div created="20170918205648928" creator="Riz" modified="20170920013711529" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/pluginreloadwarning">
+<div created="20170918205648928" creator="Riz" modified="20170920092537488" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/pluginreloadwarning">
 <pre>\define lingo-base() $:/language/
 
 &lt;$list filter=&quot;[has[plugin-type]haschanged[]!plugin-type[import]limit[1]]&quot;&gt;
@@ -8580,7 +8582,7 @@ Error message and password prompt
 &lt;/$list&gt;
 </pre>
 </div>
-<div created="20170918205648924" creator="Riz" modified="20170920013711525" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/sidebar">
+<div created="20170918205648924" creator="Riz" modified="20170920092537489" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/sidebar">
 <pre>&lt;$scrollable fallthrough=&quot;no&quot; class=&quot;tc-sidebar-scrollable&quot;&gt;
 
 &lt;div class=&quot;tc-sidebar-header&quot;&gt;
@@ -8609,7 +8611,7 @@ Error message and password prompt
 
 &lt;/$scrollable&gt;</pre>
 </div>
-<div created="20170918205648926" creator="Riz" modified="20170920013711526" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/story">
+<div created="20170918205648926" creator="Riz" modified="20170920092537490" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/story">
 <pre>&lt;section class=&quot;tc-story-river&quot;&gt;
 
 &lt;section class=&quot;story-backdrop&quot;&gt;
@@ -8637,7 +8639,7 @@ Error message and password prompt
 &lt;/section&gt;
 </pre>
 </div>
-<div created="20170918205648920" creator="Riz" modified="20170920013711519" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/topleftbar">
+<div created="20170918205648920" creator="Riz" modified="20170920092537490" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/topleftbar">
 <pre>&lt;span class=&quot;tc-topbar tc-topbar-left&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/TopLeftBar]!has[draft.of]]&quot; variable=&quot;listItem&quot;&gt;
@@ -8649,7 +8651,7 @@ Error message and password prompt
 &lt;/span&gt;
 </pre>
 </div>
-<div created="20170918205648923" creator="Riz" modified="20170920013711523" modifier="Riz" tags="TwelloMode" title="$:/core/ui/PageTemplate/toprightbar">
+<div created="20170918205648923" creator="Riz" modified="20170920092537491" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/core/ui/PageTemplate/toprightbar">
 <pre>&lt;span class=&quot;tc-topbar tc-topbar-right&quot;&gt;
 
 &lt;$list filter=&quot;[all[shadows+tiddlers]tag[$:/tags/TopRightBar]!has[draft.of]]&quot; variable=&quot;listItem&quot;&gt;
@@ -8928,7 +8930,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
     }
 }</pre>
 </div>
-<div author="Riz" core-version="&gt;=5.1.14" created="20170919234019968" creator="Riz" description="Tekan - Kanban TW" list="readme" modified="20170920004208262" modifier="Riz" name="Tekan" plugin-type="plugin" title="$:/plugins/tesseract/tekan" type="application/json" version="0.4.14">
+<div author="Riz" core-version="&gt;=5.1.14" created="20170919234019968" creator="Riz" description="Tekan - Kanban TW" list="readme" modified="20170920004208262" modifier="Riz" name="Tekan" plugin-type="plugin" title="$:/plugins/tesseract/tekan" type="application/json" version="0.4.15">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/Tekan/AddCard&quot;: {
@@ -8966,11 +8968,11 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
         &quot;$:/Tekan/Main&quot;: {
             &quot;created&quot;: &quot;20170918191921058&quot;,
             &quot;creator&quot;: &quot;Riz&quot;,
-            &quot;text&quot;: &quot;\\define currentListTag()\n[[$(currentList)$]]\n\\end\n\n\\define drop-actions()\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt;  tags=&lt;&lt;currentListTag&gt;&gt;/&gt;\n&lt;$action-listops $tiddler=&lt;&lt;currentList&gt;&gt; $subfilter=\&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\\define droplist()\n&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=\&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]\&quot;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=\&quot;tags\&quot; $value=&lt;&lt;currentBoard&gt;&gt;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=\&quot;caption\&quot; $value=&lt;&lt;actionTiddler&gt;&gt;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\\define cardeditops()\n&lt;$action-setfield $tiddler=\&quot;$:/state/editcard\&quot; text=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-modal\&quot; $param=\&quot;$:/Tikan/EditCardModal\&quot; currentList=&lt;&lt;currentList&gt;&gt; currentCard=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n\\end\n\n\\define popupstate()\n$:/state/listops/$(currentList)$\n\\end\n\n\\define deletelist()\n&lt;$list filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;/$list&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentList&gt;&gt;/&gt;\n&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=\&quot;+[remove&lt;currentList&gt;]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\\define archivelist()\n&lt;$list filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt;\n&lt;$action-listops $tags=\&quot;archive\&quot;/&gt;\n&lt;/$list&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;currentList&gt;&gt; list=\&quot;\&quot;/&gt;\n\\end\n\n\n&lt;style&gt;\n.icon-edit::before {\ncontent: \&quot;&amp;#x270e;\&quot;;\n}\n.icon-overflow-menu-horizontal::before {\n\tcontent: \&quot;&amp;#xb7;&amp;#xb7;&amp;#xb7;\&quot;;\n}\n&lt;/style&gt;\n\n&lt;div class=\&quot;ui\&quot;&gt;\n\t{{$:/Tekan/Navbar}}\n\t&lt;div class=\&quot;lists\&quot;&gt;\n    &lt;$set name=\&quot;currentBoard\&quot; value={{$:/Tekan/CurrentBoard}}&gt;\n    &lt;$list filter=\&quot;[tag&lt;currentBoard&gt;]\&quot; variable=\&quot;currentList\&quot;&gt;\n\t\t&lt;div class=\&quot;list\&quot;&gt;\n         &lt;header&gt;\n\t\t\t&lt;$draggable filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;caption\&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;title\&quot;/&gt; &lt;/$transclude&gt;\n            &lt;$button tag=\&quot;span\&quot; class=\&quot;icon-sm icon-overflow-menu-horizontal listitem\&quot; popup=&lt;&lt;popupstate&gt;&gt;&gt;&lt;/$button&gt;\n          &lt;$reveal type=\&quot;popup\&quot; position=\&quot;below\&quot; state=&lt;&lt;popupstate&gt;&gt;&gt;\n                    &lt;div class=\&quot;pop-over\&quot; style=\&quot;right: auto;top: auto;\&quot;&gt;\n                    &lt;div class=\&quot;pop-over-header\&quot;&gt;&lt;span class=\&quot;pop-over-header-title\&quot;&gt;List Actions&lt;/span&gt;\n                    &lt;/div&gt;\n                    &lt;$button tag=\&quot;div\&quot; class=\&quot;listopsbutton\&quot; actions=&lt;&lt;deletelist&gt;&gt;&gt;Delete List&lt;/$button&gt;\n                    &lt;$button tag=\&quot;div\&quot; class=\&quot;listopsbutton\&quot; actions=&lt;&lt;archivelist&gt;&gt;&gt;Archive List&lt;/$button&gt;\n                    &lt;/div&gt;\n          &lt;/$reveal&gt;\n            &lt;/$draggable&gt;\n         &lt;/header&gt;\n\t\t\t&lt;ul&gt;\n            &lt;$list filter=\&quot;[tag&lt;currentList&gt;!tag[archive]sortby{!!list}]\&quot;&gt;\n\t\t\t\t&lt;div style=\&quot;position: relative;\&quot;&gt;\n                &lt;$droppable actions=&lt;&lt;drop-actions&gt;&gt;&gt;\n                        &lt;div class=\&quot;tc-droppable-placeholder\&quot;&gt;\n                        &amp;nbsp;\n                        &lt;/div&gt;\n                      &lt;div&gt;\n                      \t\t&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=\&quot;li\&quot;&gt;&lt;$view field=\&quot;title\&quot;/&gt;\n                            &lt;$button tag=\&quot;span\&quot; class=\&quot;icon-sm icon-edit list-card-operation listitem\&quot; actions=&lt;&lt;cardeditops&gt;&gt;&gt;&lt;/$button&gt;                            \n                            &lt;/$draggable&gt;\n                     &lt;/div&gt;\n                &lt;/$droppable&gt;\n                &lt;/div&gt;\n            &lt;/$list&gt;\n\t\t\t&lt;/ul&gt;\n\t\t\t&lt;footer&gt;{{||$:/Tekan/AddCard}}&lt;/footer&gt;\n\t\t&lt;/div&gt;\n    &lt;/$list&gt;\n    \n   \t\t{{||$:/Tekan/AddList}}\n   \t\t&lt;$reveal state=\&quot;$:/state/rearrlist\&quot; type=\&quot;match\&quot; text=\&quot;show\&quot;&gt;\n   \t\t&lt;div class=\&quot;list\&quot;&gt;\n   \t\t &lt;header&gt;Lists of &lt;&lt;currentBoard&gt;&gt;&lt;/header&gt;\n\t \t\t&lt;ul&gt;\n\t \t\t\n\t\t\t            &lt;$list filter=\&quot;[tag&lt;currentBoard&gt;sortby{!!list}]\&quot;&gt;\n\t\t\t\t\t&lt;div style=\&quot;position: relative;\&quot;&gt;\n\t\t\t                &lt;$droppable actions=&lt;&lt;droplist&gt;&gt;&gt;\n\t\t\t                        &lt;div class=\&quot;tc-droppable-placeholder\&quot;&gt;\n\t\t\t                        &amp;nbsp;\n\t\t\t                        &lt;/div&gt;\n\t\t\t                      &lt;div&gt;\n\t\t\t                      \t\t&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=\&quot;li\&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;caption\&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;title\&quot;/&gt; &lt;/$transclude&gt;\n\t\t\t                            \t&lt;/$draggable&gt;\n\t\t\t                      &lt;/div&gt;\n\t\t\t                &lt;/$droppable&gt;\n\t\t\t                &lt;/div&gt;\n\t\t\t            &lt;/$list&gt;\n\t\t\t            \n\t            \t\n\t\t\t&lt;/ul&gt;\n        \n   \t\t \t&lt;footer&gt;&lt;$button class=\&quot;smallgreenbutton\&quot; set=\&quot;$:/state/rearrlist\&quot; setTo=\&quot;\&quot;&gt;Done&lt;/$button&gt;&lt;/footer&gt;\n   \t\t&lt;/div&gt;\n   \t\t&lt;/$reveal&gt;\n  \t&lt;/$set&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;&quot;,
+            &quot;text&quot;: &quot;\\define currentListTag()\n[[$(currentList)$]]\n\\end\n\n\\define drop-actions()\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt;  tags=&lt;&lt;currentListTag&gt;&gt;/&gt;\n&lt;$action-listops $tiddler=&lt;&lt;currentList&gt;&gt; $subfilter=\&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\n\\define currentBoardTags()\n[[$(currentBoard)$]]\n\\end\n\n\\define droplist()\n&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=\&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]\&quot;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=\&quot;tags\&quot; $value=&lt;&lt;currentBoardTags&gt;&gt;/&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=\&quot;caption\&quot; $value=&lt;&lt;actionTiddler&gt;&gt;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\\define cardeditops()\n&lt;$action-setfield $tiddler=\&quot;$:/state/editcard\&quot; text=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-modal\&quot; $param=\&quot;$:/Tikan/EditCardModal\&quot; currentList=&lt;&lt;currentList&gt;&gt; currentCard=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n\\end\n\n\\define popupstate()\n$:/state/listops/$(currentList)$\n\\end\n\n\\define deletelist()\n&lt;$list filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentTiddler&gt;&gt;/&gt;\n&lt;/$list&gt;\n&lt;$action-deletetiddler $tiddler=&lt;&lt;currentList&gt;&gt;/&gt;\n&lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=\&quot;+[remove&lt;currentList&gt;]\&quot;/&gt;\n&lt;$action-sendmessage $message=\&quot;tm-auto-save-wiki\&quot;/&gt;\n\\end\n\n\\define archivelist()\n&lt;$list filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt;\n&lt;$action-listops $tags=\&quot;archive\&quot;/&gt;\n&lt;/$list&gt;\n&lt;$action-setfield $tiddler=&lt;&lt;currentList&gt;&gt; list=\&quot;\&quot;/&gt;\n\\end\n\n\n&lt;style&gt;\n.icon-edit::before {\ncontent: \&quot;&amp;#x270e;\&quot;;\n}\n.icon-overflow-menu-horizontal::before {\n\tcontent: \&quot;&amp;#xb7;&amp;#xb7;&amp;#xb7;\&quot;;\n}\n&lt;/style&gt;\n\n&lt;div class=\&quot;ui\&quot;&gt;\n\t{{$:/Tekan/Navbar}}\n\t&lt;div class=\&quot;lists\&quot;&gt;\n    &lt;$set name=\&quot;currentBoard\&quot; value={{$:/Tekan/CurrentBoard}}&gt;\n    &lt;$list filter=\&quot;[tag&lt;currentBoard&gt;]\&quot; variable=\&quot;currentList\&quot;&gt;\n\t\t&lt;div class=\&quot;list\&quot;&gt;\n         &lt;header&gt;\n\t\t\t&lt;$draggable filter=\&quot;[tag&lt;currentList&gt;]\&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;caption\&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;title\&quot;/&gt; &lt;/$transclude&gt;\n            &lt;$button tag=\&quot;span\&quot; class=\&quot;icon-sm icon-overflow-menu-horizontal listitem\&quot; popup=&lt;&lt;popupstate&gt;&gt;&gt;&lt;/$button&gt;\n          &lt;$reveal type=\&quot;popup\&quot; position=\&quot;below\&quot; state=&lt;&lt;popupstate&gt;&gt;&gt;\n                    &lt;div class=\&quot;pop-over\&quot; style=\&quot;right: auto;top: auto;\&quot;&gt;\n                    &lt;div class=\&quot;pop-over-header\&quot;&gt;&lt;span class=\&quot;pop-over-header-title\&quot;&gt;List Actions&lt;/span&gt;\n                    &lt;/div&gt;\n                    &lt;$button tag=\&quot;div\&quot; class=\&quot;listopsbutton\&quot; actions=&lt;&lt;deletelist&gt;&gt;&gt;Delete List&lt;/$button&gt;\n                    &lt;$button tag=\&quot;div\&quot; class=\&quot;listopsbutton\&quot; actions=&lt;&lt;archivelist&gt;&gt;&gt;Archive List&lt;/$button&gt;\n                    &lt;/div&gt;\n          &lt;/$reveal&gt;\n            &lt;/$draggable&gt;\n         &lt;/header&gt;\n\t\t\t&lt;ul&gt;\n            &lt;$list filter=\&quot;[tag&lt;currentList&gt;!tag[archive]sortby{!!list}]\&quot;&gt;\n\t\t\t\t&lt;div style=\&quot;position: relative;\&quot;&gt;\n                &lt;$droppable actions=&lt;&lt;drop-actions&gt;&gt;&gt;\n                        &lt;div class=\&quot;tc-droppable-placeholder\&quot;&gt;\n                        &amp;nbsp;\n                        &lt;/div&gt;\n                      &lt;div&gt;\n                      \t\t&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=\&quot;li\&quot;&gt;&lt;$view field=\&quot;title\&quot;/&gt;\n                            &lt;$button tag=\&quot;span\&quot; class=\&quot;icon-sm icon-edit list-card-operation listitem\&quot; actions=&lt;&lt;cardeditops&gt;&gt;&gt;&lt;/$button&gt;                            \n                            &lt;/$draggable&gt;\n                     &lt;/div&gt;\n                &lt;/$droppable&gt;\n                &lt;/div&gt;\n            &lt;/$list&gt;\n\t\t\t&lt;/ul&gt;\n\t\t\t&lt;footer&gt;{{||$:/Tekan/AddCard}}&lt;/footer&gt;\n\t\t&lt;/div&gt;\n    &lt;/$list&gt;\n    \n   \t\t{{||$:/Tekan/AddList}}\n   \t\t&lt;$reveal state=\&quot;$:/state/rearrlist\&quot; type=\&quot;match\&quot; text=\&quot;show\&quot;&gt;\n   \t\t&lt;div class=\&quot;list\&quot;&gt;\n   \t\t &lt;header&gt;Lists of &lt;&lt;currentBoard&gt;&gt;&lt;/header&gt;\n\t \t\t&lt;ul&gt;\n\t \t\t\n\t\t\t            &lt;$list filter=\&quot;[tag&lt;currentBoard&gt;sortby{!!list}]\&quot;&gt;\n\t\t\t\t\t&lt;div style=\&quot;position: relative;\&quot;&gt;\n\t\t\t                &lt;$droppable actions=&lt;&lt;droplist&gt;&gt;&gt;\n\t\t\t                        &lt;div class=\&quot;tc-droppable-placeholder\&quot;&gt;\n\t\t\t                        &amp;nbsp;\n\t\t\t                        &lt;/div&gt;\n\t\t\t                      &lt;div&gt;\n\t\t\t                      \t\t&lt;$draggable tiddler=&lt;&lt;currentTiddler&gt;&gt; tag=\&quot;li\&quot;&gt; &lt;$transclude tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;caption\&quot;&gt;&lt;$view tiddler=&lt;&lt;currentList&gt;&gt; field=\&quot;title\&quot;/&gt; &lt;/$transclude&gt;\n\t\t\t                            \t&lt;/$draggable&gt;\n\t\t\t                      &lt;/div&gt;\n\t\t\t                &lt;/$droppable&gt;\n\t\t\t                &lt;/div&gt;\n\t\t\t            &lt;/$list&gt;\n\t\t\t            \n\t            \t\n\t\t\t&lt;/ul&gt;\n        \n   \t\t \t&lt;footer&gt;&lt;$button class=\&quot;smallgreenbutton\&quot; set=\&quot;$:/state/rearrlist\&quot; setTo=\&quot;\&quot;&gt;Done&lt;/$button&gt;&lt;/footer&gt;\n   \t\t&lt;/div&gt;\n   \t\t&lt;/$reveal&gt;\n  \t&lt;/$set&gt;\n\t&lt;/div&gt;\n&lt;/div&gt;&quot;,
             &quot;title&quot;: &quot;$:/Tekan/Main&quot;,
             &quot;tags&quot;: &quot;$:/Tekan&quot;,
             &quot;modifier&quot;: &quot;Riz&quot;,
-            &quot;modified&quot;: &quot;20170920012317763&quot;
+            &quot;modified&quot;: &quot;20170920092759381&quot;
         },
         &quot;$:/Tekan/Navbar&quot;: {
             &quot;created&quot;: &quot;20170913174601878&quot;,
@@ -8998,7 +9000,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
             &quot;title&quot;: &quot;$:/Tekan/Substyles&quot;,
             &quot;tags&quot;: &quot;$:/Tekan&quot;,
             &quot;modifier&quot;: &quot;Riz&quot;,
-            &quot;modified&quot;: &quot;20170920012317765&quot;
+            &quot;modified&quot;: &quot;20170920092612196&quot;
         },
         &quot;$:/Tekan/Switch&quot;: {
             &quot;text&quot;: &quot;&lt;$button class=\&quot;tc-btn-invisible\&quot;&gt;{{$:/core/images/opacity}}\n&lt;$list filter=\&quot;[all[shadows+tiddlers]tag[$:/tags/PageTemplate]!has[draft.of]]\&quot;&gt;\n&lt;$action-setfield tags=\&quot;TwelloMode\&quot;/&gt;\n&lt;/$list&gt;\n&lt;$action-setfield $tiddler=\&quot;$:/Tekan/Main\&quot; tags=\&quot;$:/tags/PageTemplate\&quot;/&gt;\n&lt;$action-listops $tiddler=\&quot;$:/Tekan/Substyles\&quot; $tags=\&quot;$:/tags/Stylesheet\&quot;/&gt;\n&lt;$action-listops $tiddler=\&quot;$:/Tekan/RawMarkup\&quot; $tags=\&quot;$:/tags/RawMarkup\&quot;/&gt;\n&lt;/$button&gt;&quot;,
@@ -9220,7 +9222,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20170918200142719" modified="20170918200143578" title="$:/SiteTitle">
 <pre>Tekan</pre>
 </div>
-<div created="20170919051006062" creator="Riz" modified="20170920002459262" modifier="Riz" title="$:/state/addnewlist">
+<div created="20170919051006062" creator="Riz" modified="20170920092523290" modifier="Riz" title="$:/state/addnewlist">
 <pre></pre>
 </div>
 <div created="20170918201619190" creator="Riz" modified="20170920002506019" modifier="Riz" title="$:/state/AddNote">
@@ -9241,8 +9243,11 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20170919151900637" modified="20170919151900637" title="$:/state/folded/tmp/modalstyles">
 <pre>hide</pre>
 </div>
-<div created="20170919052514060" creator="Riz" modified="20170920002459261" modifier="Riz" title="$:/state/newlisttemp">
+<div created="20170919052514060" creator="Riz" modified="20170920092523290" modifier="Riz" title="$:/state/newlisttemp">
 <pre></pre>
+</div>
+<div created="20170920092038845" creator="Riz" modified="20170920092038846" modifier="Riz" title="$:/state/plugin-info--1617947196-$:/plugins/tesseract/tekan---1171297139">
+<pre>contents</pre>
 </div>
 <div created="20170919233853185" creator="Riz" modified="20170919233853185" modifier="Riz" title="$:/state/plugin-info--896887961-$:/plugins/tesseract/tekan">
 <pre>yes</pre>
@@ -9268,8 +9273,8 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20170919234345625" creator="Riz" modified="20170919234350148" modifier="Riz" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tiddlywiki/codemirror">
 <pre>no</pre>
 </div>
-<div created="20170919190159737" modified="20170919221143793" title="$:/state/rearrlist">
-<pre></pre>
+<div created="20170919190159737" creator="Riz" modified="20170920092501782" modifier="Riz" title="$:/state/rearrlist">
+<pre>show</pre>
 </div>
 <div created="20170919053713845" modified="20170919060723017" title="$:/state/showeditpreview">
 <pre>no</pre>
@@ -9298,13 +9303,13 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20170919223914184" creator="R" modified="20170919223914661" modifier="Ri" title="$:/status/UserName">
 <pre>Riz</pre>
 </div>
-<div list="[[Hello There]]" title="$:/StoryList">
+<div list="$:/Import [[Hello There]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170918203350742" creator="Riz" modified="20170920004811814" modifier="Riz" tags="$:/Tekan" title="$:/Tekan/CurrentBoard">
 <pre>First Board</pre>
 </div>
-<div created="20170918191921058" creator="Riz" modified="20170920013711530" modifier="Riz" tags="$:/tags/PageTemplate" title="$:/Tekan/Main">
+<div created="20170918191921058" creator="Riz" modified="20170920093022856" modifier="Riz" tags="$:/Tekan" title="$:/Tekan/Main">
 <pre>\define currentListTag()
 [[$(currentList)$]]
 \end
@@ -9315,9 +9320,13 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 
 \end
 
+\define currentBoardTags()
+[[$(currentBoard)$]]
+\end
+
 \define droplist()
 &lt;$action-listops $tiddler=&lt;&lt;currentBoard&gt;&gt; $subfilter=&quot;+[insertbefore:currentTiddler&lt;actionTiddler&gt;]&quot;/&gt;
-&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=&quot;tags&quot; $value=&lt;&lt;currentBoard&gt;&gt;/&gt;
+&lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=&quot;tags&quot; $value=&lt;&lt;currentBoardTags&gt;&gt;/&gt;
 &lt;$action-setfield $tiddler=&lt;&lt;actionTiddler&gt;&gt; $field=&quot;caption&quot; $value=&lt;&lt;actionTiddler&gt;&gt;/&gt;
 
 \end
@@ -9429,7 +9438,7 @@ content: &quot;&amp;#x270e;&quot;;
 <div created="20170919231233450" creator="Riz" modified="20170919231233450" modifier="Riz" tags="$:/tags/RawMarkup" title="$:/Tekan/RawMarkup">
 <pre></pre>
 </div>
-<div created="20170910190007347" creator="Riz" modified="20170920013711532" modifier="Riz" tags="$:/Tekan $:/tags/Stylesheet" title="$:/Tekan/Substyles" type="text/css">
+<div created="20170910190007347" creator="Riz" modified="20170920092537493" modifier="Riz" tags="$:/Tekan" title="$:/Tekan/Substyles" type="text/css">
 <pre>body {
 	font: 12px Arial,Helvetica,sans-serif;
 margin: 0;
@@ -10315,16 +10324,16 @@ footer textarea {line-height: 22px;}
 <div created="20170920013150034" creator="Riz" modified="20170920013209939" modifier="Riz" tags="[[First Board/Hello There]]" title="Ferer">
 <pre></pre>
 </div>
-<div created="20170919213855617" creator="Riz" list="[[First Board/Hello There]] [[First Board/Gentle guide ]] [[First Board/Might work]] [[First Board/Adding your own topbar button]] [[First Board/dfgdfg]] [[First Board/dfgdf]]" modified="20170920003214256" modifier="Riz" tags="$:/tags/Tekanboard" title="First Board">
+<div created="20170919213855617" creator="Riz" list="[[First Board/Hello There]] [[First Board/Gentle guide ]] [[First Board/Might work]] [[There after, any tiddler tagged with board's name becomes a list, any tiddler tagged with list name becomes a card.]] [[First Board/Adding your own topbar button]] [[First Board/dfgdfg]] [[First Board/dfgdf]] [[First Board/Her2]]" modified="20170920092530363" modifier="Riz" tags="$:/tags/Tekanboard" title="First Board">
 <pre></pre>
 </div>
-<div caption="Gentle guide " created="20170919213947321" creator="Riz" list="[[Switch to tiddlywiki mode using {{$:/core/images/opacity}}]] [[Switch to tiddlywiki mode]] [[If a card becomes too unwieldy with too many checklist items, what to do?]] [[While in TW mode, you can add the tag &quot;$:/tags/Tekanboard&quot;  to consider that tiddler as a board]] [[There after, any tiddler tagged with board's name becomes a list, any tiddler tagged with list name becomes a card.]] [[Now try the on-hover edit button of a card]] [[On the modal that opens, click on the title to change the title]] [[Click on &quot;add a checklist item&quot; in the edit modal to add a checklist item.]]" modified="20170920013654640" modifier="Riz" tags="[[First Board]]" title="First Board/Gentle guide ">
+<div caption="First Board/Gentle guide " created="20170919213947321" creator="Riz" list="[[Switch to tiddlywiki mode using {{$:/core/images/opacity}}]] [[Switch to tiddlywiki mode]] [[If a card becomes too unwieldy with too many checklist items, what to do?]] [[While in TW mode, you can add the tag &quot;$:/tags/Tekanboard&quot;  to consider that tiddler as a board]] [[There after, any tiddler tagged with board's name becomes a list, any tiddler tagged with list name becomes a card.]] [[Now try the on-hover edit button of a card]] [[On the modal that opens, click on the title to change the title]] [[Click on &quot;add a checklist item&quot; in the edit modal to add a checklist item.]]" modified="20170920092508622" modifier="Riz" tags="[[First Board]]" title="First Board/Gentle guide ">
 <pre></pre>
 </div>
 <div caption="Hello There" created="20170919213903699" creator="Riz" list="[[This is Tekan]] [[Add a card using the &quot;Add a card..&quot; button below every list]] [[You can hit enter while typing to commit that car]] [[You can hit enter while typing to commit that card]] [[Add a new list, add a few cards, and drag them to another list]] [[If you drag the header of a list to another list (eg, drag &quot;Hello There&quot; to another list, all cards of that list will be moved]] [[Try the &quot;Board&quot; button on the top to switch boards]] [[Try the four buttons on the top right. Tool tips will give hints about their function.]]" modified="20170920000108161" modifier="Riz" tags="[[First Board]]" title="First Board/Hello There">
 <pre></pre>
 </div>
-<div caption="Might work" created="20170919221201126" creator="Riz" list="[[If a card becomes too unwieldy with too many checklist items, click on the &quot;A&quot; button on the top bar to reveal the rearrange list. Now drag the card to that list, the card will be converted to a list with its checklist items converted to cards]] [[Now try the on-hover edit button of a card]] [[If a card becomes too unwieldy with too many checklist items, what to do?]] [[Click on the &quot;A&quot; button on the top bar to reveal the rearrange list. ]] [[Now drag the card to that list, the card will be converted to a list with its checklist items converted to cards. ]]" modified="20170920013658968" modifier="Riz" tags="[[First Board]]" title="First Board/Might work">
+<div caption="First Board/Might work" created="20170919221201126" creator="Riz" list="[[If a card becomes too unwieldy with too many checklist items, click on the &quot;A&quot; button on the top bar to reveal the rearrange list. Now drag the card to that list, the card will be converted to a list with its checklist items converted to cards]] [[Now try the on-hover edit button of a card]] [[If a card becomes too unwieldy with too many checklist items, what to do?]] [[Click on the &quot;A&quot; button on the top bar to reveal the rearrange list. ]] [[Now drag the card to that list, the card will be converted to a list with its checklist items converted to cards. ]]" modified="20170920092505271" modifier="Riz" tags="[[First Board]]" title="First Board/Might work">
 <pre></pre>
 </div>
 <div created="20170919223405135" creator="Riz" modified="20170920003623883" modifier="Riz" tags="" title="Hello There">
@@ -10385,7 +10394,7 @@ To test it in your TW5, drag and drop the following link to your TW [[$:/plugins
 &lt;$action-listops $tiddler=&quot;Board1/Second List&quot; $subfilter=&lt;&lt;newHereButtonTags&gt;&gt;/&gt;
 </pre>
 </div>
-<div created="20170919215621619" modified="20170919215621619" tags="[[First Board/Gentle guide ]]" title="There after, any tiddler tagged with board's name becomes a list, any tiddler tagged with list name becomes a card.">
+<div created="20170920092343757" creator="Riz" modified="20170920092343757" modifier="Riz" tags="[[First Board/Gentle guide ]]" title="There after, any tiddler tagged with board's name becomes a list, any tiddler tagged with list name becomes a card.">
 <pre></pre>
 </div>
 <div created="20170919213912188" modified="20170919213912188" tags="[[First Board/Hello There]]" title="This is Tekan">
