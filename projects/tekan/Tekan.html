@@ -46,7 +46,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 <link id="faviconLink" rel="shortcut icon" href="favicon.ico">
 <title>Tekan — Kanban that stays with you</title>
 <!--~~ This is a Tiddlywiki file. The points of interest in the file are marked with this pattern ~~--><!--~~ Raw markup ~~-->
-
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
 
 </head>
 <body class="tc-body">
@@ -147,6 +147,8 @@ Error message and password prompt
 <li>$:/core/ui/SideBar/Recent</li>
 
 <li>$:/core/ui/SideBar/Tools</li>
+
+<li>$:/core/ui/TopBar/menu</li>
 
 <li>$:/DefaultTiddlers</li>
 
@@ -286,6 +288,8 @@ Error message and password prompt
 
 <li>Dragging to an empty list</li>
 
+<li>External Fonts</li>
+
 <li>First Board</li>
 
 <li>First Board/Gentle guide </li>
@@ -323,6 +327,8 @@ Error message and password prompt
 <li>Optional Addons</li>
 
 <li>Press on the top right button</li>
+
+<li>Road map</li>
 
 <li>Sort by due date</li>
 
@@ -8717,8 +8723,17 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 &lt;/$set&gt;
 </pre>
 </div>
-<div created="20170918180517590" creator="Riz" modified="20170922200249270" modifier="Riz" title="$:/DefaultTiddlers">
-<pre>[[Hello There]][[Optional Addons]][[How to add your own buttons]]</pre>
+<div created="20170118132617891" modified="20170118145016035" tags="$:/tags/TopLeftBar" title="$:/core/ui/TopBar/menu">
+<pre>&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;nomatch&quot; text=&quot;no&quot;&gt;
+&lt;$button set=&quot;$:/state/sidebar&quot; setTo=&quot;no&quot; tooltip={{$:/language/Buttons/HideSideBar/Hint}} aria-label={{$:/language/Buttons/HideSideBar/Caption}} class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/menu-button}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&quot;$:/state/sidebar&quot; type=&quot;match&quot; text=&quot;no&quot;&gt;
+&lt;$button set=&quot;$:/state/sidebar&quot; setTo=&quot;yes&quot; tooltip={{$:/language/Buttons/ShowSideBar/Hint}} aria-label={{$:/language/Buttons/ShowSideBar/Caption}} class=&quot;tc-btn-invisible&quot;&gt;{{$:/core/images/menu-button}}&lt;/$button&gt;
+&lt;/$reveal&gt;
+</pre>
+</div>
+<div created="20170918180517590" creator="Riz" modified="20170922202946382" modifier="Riz" title="$:/DefaultTiddlers">
+<pre>[[Hello There]][[Optional Addons]][[How to add your own buttons]][[Road map]]</pre>
 </div>
 <div created="20170922190816598" creator="Riz" modified="20170922195526602" modifier="Riz" tags="$:/tags/Stylesheet" title="$:/Hum/This">
 <pre>.tc-tiddler-body {
@@ -8736,7 +8751,7 @@ pre {
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/Tekan/NavboardButtons]]</pre>
+# [[$:/core/ui/TopBar/menu]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -9306,11 +9321,11 @@ pre {
 <div created="20170919053713845" modified="20170919060723017" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20170918192231409" creator="Riz" modified="20170922161937038" modifier="Riz" title="$:/state/sidebar">
+<div created="20170918192231409" creator="Riz" modified="20170922203909252" modifier="Riz" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20170918191742817" creator="Riz" modified="20170922195406478" modifier="Riz" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/System</pre>
+<div created="20170918191742817" creator="Riz" modified="20170922203750761" modifier="Riz" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Standard</pre>
 </div>
 <div created="20170918172442683" modified="20170918172442683" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
@@ -9318,8 +9333,8 @@ pre {
 <div created="20170919223907327" modified="20170919223911082" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
-<div created="20170918172404167" creator="Riz" modified="20170922200508543" modifier="Riz" title="$:/state/tab-1749438307">
-<pre>$:/plugins/ahahn/tinka/controlPanelExtension</pre>
+<div created="20170918172404167" creator="Riz" modified="20170922202934175" modifier="Riz" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
 <div created="20170918172412476" modified="20170918191543823" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/DownloadSaver</pre>
@@ -9330,7 +9345,7 @@ pre {
 <div created="20170919223914184" creator="R" modified="20170919223914661" modifier="Ri" title="$:/status/UserName">
 <pre>Riz</pre>
 </div>
-<div list="$:/ControlPanel [[Hello There]] [[Optional Addons]] [[How to add your own buttons]]" title="$:/StoryList">
+<div list="[[Hello There]] [[Optional Addons]] [[How to add your own buttons]] [[Road map]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div bag="default" created="20161105155442170" modified="20170119075647749" revision="0" status="" tags="$:/tags/Stylesheet" title="$:/Stylesheet/Generic" type="text/css">
@@ -9460,8 +9475,8 @@ pre {
 <div created="20170919231233450" creator="Riz" modified="20170919231233450" modifier="Riz" tags="$:/tags/RawMarkup" title="$:/Tekan/RawMarkup">
 <pre></pre>
 </div>
-<div created="20170918191745117" creator="Riz" modified="20170922195552160" modifier="Riz" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20170918191745117" creator="Riz" modified="20170922203753426" modifier="Riz" title="$:/temp/advancedsearch">
+<pre>Exter</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9913,6 +9928,9 @@ span.tc-tag-label  {
 <div created="20170919220638172" creator="Riz" modified="20170922185818157" modifier="Riz" tags="[[Incomplete features and future plans/Done]]" title="Dragging to an empty list">
 <pre></pre>
 </div>
+<div created="20170118143424799" creator="Riz" modified="20170922203807947" modifier="Riz" tags="$:/tags/RawMarkup" title="External Fonts">
+<pre>&lt;link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'&gt;</pre>
+</div>
 <div created="20170919213855617" creator="Riz" list="[[First Board/Hello There]] [[First Board/Gentle guide ]] [[First Board/Might work]] [[First Board/Adding your own topbar button]] [[First Board/dfgdfg]] [[First Board/dfgdf]]" modified="20170922185728820" modifier="Riz" tags="$:/tags/Tekanboard" title="First Board">
 <pre></pre>
 </div>
@@ -10011,6 +10029,13 @@ Add the following snippet to a tiddler and tag it with &quot;~$:/Tekan/Button&qu
 </div>
 <div created="20170919221058707" modified="20170919221058707" tags="[[Switch to tiddlywiki mode]]" title="Press on the top right button">
 <pre></pre>
+</div>
+<div created="20170922203004398" creator="Riz" modified="20170922203229137" modifier="Riz" title="Road map">
+<pre># Adding options to change background colors of different boards
+# Adding fields for due date and priority.
+# Sorting list by due date and priority
+# Standalone version with support for markdown
+# Mobile adaptation</pre>
 </div>
 <div created="20170919223254529" modified="20170919223256222" tags="[[Incomplete features and future plans/Roadmap]]" title="Sort by due date">
 <pre></pre>
