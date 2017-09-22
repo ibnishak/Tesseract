@@ -1,0 +1,16 @@
+[
+    {
+        "created": "20170922184005409",
+        "text": "\n{{$:/Tekan/CurrentBoard}}<br/>\n<$list filter=\"[tag{$:/Tekan/CurrentBoard}]\">- [ ] <<currentTiddler>>\n<$list filter=\"[tag<currentTiddler>]\"> - [ ] <<currentTiddler>>\n<$list filter=\"[tag<currentTiddler>]\">  - [ ] <<currentTiddler>><br/>\n</$list></$list></$list>\n",
+        "title": "$:/Tekan/Md/Template",
+        "tags": "",
+        "modified": "20170922184133480"
+    },
+    {
+        "created": "20170922183832195",
+        "text": "\\define filename()\n$(basename)$.md\n\\end\n\n<$set name=\"basename\" value={{$:/Tekan/CurrentBoard}}>\n<$button class=\"tc-btn-invisible\" tooltip=\"Export as markdown tasklist\">@@fill:white;{{$:/core/images/export-button}}@@\n<$action-sendmessage $message=\"tm-download-file\" $param=\"$:/Tekan/Md/Template\" filename=<<filename>>/>\n</$button>",
+        "title": "$:/Tekan/Md/ExportButton",
+        "tags": "$:/Tekan/Button",
+        "modified": "20170922184624037"
+    }
+]

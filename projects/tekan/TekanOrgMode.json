@@ -1,0 +1,16 @@
+[
+    {
+        "created": "20170922182025190",
+        "text": "\\define filename()\n$(basename)$.org\n\\end\n\n<$set name=\"basename\" value={{$:/Tekan/CurrentBoard}}>\n<$button class=\"tc-btn-invisible\" tooltip=\"Export to Org mode\">@@fill:white;{{$:/core/images/export-button}}@@\n<$action-sendmessage $message=\"tm-download-file\" $param=\"$:/Tekan/OrgMode/Template\" filename=<<filename>>/>\n</$button>",
+        "title": "$:/Tekan/OrgMode/ExportButton",
+        "tags": "$:/Tekan/Button",
+        "modified": "20170922184711622"
+    },
+    {
+        "created": "20170922173416197",
+        "text": "\n``*`` {{$:/Tekan/CurrentBoard}}<br/>\n<$list filter=\"[tag{$:/Tekan/CurrentBoard}]\">** TODO <<currentTiddler>>\n<$list filter=\"[tag<currentTiddler>]\">*** TODO <<currentTiddler>>\n<$list filter=\"[tag<currentTiddler>]\">**** TODO <<currentTiddler>><br/>\n</$list></$list></$list>\n",
+        "title": "$:/Tekan/OrgMode/Template",
+        "tags": "",
+        "modified": "20170922184635605"
+    }
+]

@@ -1,0 +1,9 @@
+[
+    {
+        "created": "20170922171503833",
+        "text": "<$button tooltip=\"View as a Tekan Board\" aria-label=\"Board\" class=<<tv-config-toolbar-class>>>\n<$list filter=\"[<tv-config-toolbar-icons>prefix[yes]]\">\n{{$:/core/images/storyview-classic}}\n</$list>\n<$list filter=\"[<tv-config-toolbar-text>prefix[yes]]\">\n<span class=\"tc-btn-text\"><$text text={{$:/language/Buttons/Close/Caption}}/></span>\n</$list>\n<$list filter=\"[all[shadows+tiddlers]tag[$:/tags/PageTemplate]!has[draft.of]]\">\n<$action-setfield tags=\"TwelloMode\"/>\n</$list>\n<$action-setfield $tiddler=\"$:/Tekan/Main\" tags=\"$:/tags/PageTemplate\"/>\n<$action-listops $tiddler=\"$:/Tekan/Substyles\" $tags=\"$:/tags/Stylesheet\"/>\n<$action-setfield $tiddler=\"$:/Tekan/CurrentBoard\" text=<<currentTiddler>>/>\n\n</$button>",
+        "title": "$:/Tekan/TiddlerToBoard",
+        "tags": "$:/tags/ViewToolbar",
+        "modified": "20170922172348220"
+    }
+]
