@@ -169,6 +169,8 @@ Error message and password prompt
 
 <li>$:/state/toc/TableOfContents-Quote Block--81657105</li>
 
+<li>$:/state/toc/TableOfContents-Rainbow box--81657105</li>
+
 <li>$:/state/toc/TableOfContents-Rotating cat--81657105</li>
 
 <li>$:/state/toc/TableOfContents-Smart Quotations--81657105</li>
@@ -185,6 +187,8 @@ Error message and password prompt
 
 <li>$:/temp/search</li>
 
+<li>$:/tesseract/modules/macros/typewriter.js</li>
+
 <li>$:/theme</li>
 
 <li>$:/themes/tiddlywiki/snowwhite</li>
@@ -195,15 +199,21 @@ Error message and password prompt
 
 <li>$:/themes/tiddlywiki/vanilla/themetweaks</li>
 
+<li>3D Extrude Text Effect HTML</li>
+
+<li>3D Extrude Text Effect Stylesheet</li>
+
 <li>Buffer SVG Animated</li>
 
 <li>Buffer SVG Stylesheet</li>
 
 <li>GettingStarted: Version 5.1.13</li>
 
-<li>Locker Hypnosis/Sci-Fi Circle</li>
+<li>Hello</li>
 
 <li>Locker Hypnosis/Sci-Fi Circle - Stylesheet</li>
+
+<li>Locker Hypnosis/Sci-Fi Circle SVG</li>
 
 <li>Rainbow box</li>
 
@@ -220,6 +230,8 @@ Error message and password prompt
 <li>Transition Demo</li>
 
 <li>Typewriter animation</li>
+
+<li>Typewriter animation HTML</li>
 
 <li>Typewriter animation Stylesheet</li>
 
@@ -7988,13 +8000,13 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 &lt;/$set&gt;
 </pre>
 </div>
-<div created="20170105060025809" modified="20180214165845608" title="$:/DefaultTiddlers">
-<pre>[[Locker Hypnosis/Sci-Fi Circle]][[Rainbow box]][[Rotating cat]]</pre>
+<div created="20170105060025809" modified="20180215032906426" title="$:/DefaultTiddlers">
+<pre>[[Locker Hypnosis/Sci-Fi Circle SVG]][[Rainbow box]][[Rotating cat]]</pre>
 </div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/core/modules/macros/nower.js]]</pre>
+# [[New Tiddler 1]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8005,10 +8017,10 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20170105060015374" modified="20170114165902923" title="$:/SiteTitle">
 <pre>Animations etc</pre>
 </div>
-<div created="20170114170127570" modified="20170114170530814" title="$:/state/sidebar">
+<div created="20170114170127570" modified="20180215034317518" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20170105060742729" modified="20180213023754601" title="$:/state/tab--1498284803">
+<div created="20170105060742729" modified="20180215032936583" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/System</pre>
 </div>
 <div created="20170105060055786" modified="20170105062353137" title="$:/state/tab--1963855381">
@@ -8030,6 +8042,9 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <pre>close</pre>
 </div>
 <div created="20170114170534432" modified="20170115042456772" title="$:/state/toc/TableOfContents-Quote Block--81657105">
+<pre>open</pre>
+</div>
+<div created="20180215030445871" modified="20180215030445871" title="$:/state/toc/TableOfContents-Rainbow box--81657105">
 <pre>open</pre>
 </div>
 <div created="20180213030118006" modified="20180213030118006" title="$:/state/toc/TableOfContents-Rotating cat--81657105">
@@ -8084,8 +8099,8 @@ text-decoration:none;
 	box-shadow: 0px 0px 20px #fff;
 }</pre>
 </div>
-<div created="20170105060745201" modified="20180214165757218" title="$:/temp/advancedsearch">
-<pre>new</pre>
+<div created="20170105060745201" modified="20180215032934408" title="$:/temp/advancedsearch">
+<pre>nowe</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -8101,8 +8116,43 @@ text-decoration:none;
     }
 }</pre>
 </div>
-<div created="20170114143811690" modified="20180214165757218" title="$:/temp/search">
-<pre></pre>
+<div created="20170114143811690" modified="20180215034328256" title="$:/temp/search">
+<pre>new</pre>
+</div>
+<div created="20180215025153598" modified="20180215025704279" module-type="macro" tags="" title="$:/tesseract/modules/macros/typewriter.js" type="application/javascript">
+<pre>/*\
+title: $:/core/modules/macros/typewriter.js
+type: application/javascript
+module-type: macro
+
+Macro to return a typewriter animated text
+
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+/*
+Information about this macro
+*/
+
+exports.name = &quot;typew&quot;;
+
+exports.params = [
+	{name: &quot;text&quot;}
+];
+
+/*
+Run the macro
+*/
+exports.run = function(text) {
+	return '&lt;style&gt;.line-1{position:relative;top:50%;width:24em;margin:0 auto;border-right:2px solid rgba(255,255,255,.75);font-size:180%;text-align:center;white-space:nowrap;overflow:hidden;transform:translateY(-50%);line-height:2}.anim-typewriter{animation:typewriter 4s steps(44) 1s 1 normal both,blinkTextCursor .5s steps(44) infinite normal}@keyframes typewriter{from{width:0}to{width:24em}}@keyframes blinkTextCursor{from{border-right-color:rgba(255,255,255,.75)}to{border-right-color:transparent}}&lt;/style&gt;&lt;p class=&quot;line-1 anim-typewriter&quot;&gt;'+text+'&lt;/p&gt;'
+};
+
+})();
+</pre>
 </div>
 <div created="20170105060053130" modified="20170105060053130" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -8296,6 +8346,80 @@ text-decoration:none;
 |&lt;$link to=&quot;$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth&quot;&gt;&lt;&lt;lingo Metrics/SidebarWidth&gt;&gt;&lt;/$link&gt;&lt;br&gt;//&lt;&lt;lingo Metrics/SidebarWidth/Hint&gt;&gt;// |^&lt;$edit-text tiddler=&quot;$:/themes/tiddlywiki/vanilla/metrics/sidebarwidth&quot; default=&quot;&quot; tag=&quot;input&quot;/&gt; |
 </pre>
 </div>
+<div created="20180215033239121" modified="20180215033630070" tags="TableOfContents" title="3D Extrude Text Effect HTML">
+<pre>&lt;div class=&quot;plate-container&quot;&gt;
+&lt;div class=&quot;plate&quot;&gt;
+  &lt;p class=&quot;script&quot;&gt;&lt;span&gt;Handwritey&lt;/span&gt;&lt;/p&gt;
+  &lt;p class=&quot;shadow text1&quot;&gt;CHUNKY&lt;/p&gt;
+  &lt;p class=&quot;shadow text2&quot;&gt;BIG&lt;/p&gt;
+  &lt;p class=&quot;shadow text3&quot;&gt;STUFF&lt;/p&gt;
+  &lt;p class=&quot;script&quot;&gt;&lt;span&gt;with CSS&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;</pre>
+</div>
+<div created="20180215033114943" modified="20180215033612993" tags="[[3D Extrude Text Effect HTML]] $:/tags/Stylesheet" title="3D Extrude Text Effect Stylesheet" type="text/css">
+<pre>@import url(https://fonts.googleapis.com/css?family=Arvo:700);
+@import url(https://fonts.googleapis.com/css?family=Seaweed+Script);
+.plate-container {
+	background: #222;
+	overflow: hidden;
+}
+.plate {
+  min-width: 410px;
+  margin: 10% auto;
+}
+.shadow {
+  color: #fff;
+  font-family: Arvo;
+  font-weight: bold;
+  text-shadow:
+    -3px -3px 0 #222,
+    3px -3px 0 #222,
+    -3px 3px 0 #222,
+    3px 3px 0 #222,
+    4px 4px 0 #fff,
+    5px 5px 0 #fff,
+    6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+  -webkit-transform: scaleY(0.7);
+  -moz-transform: scaleY(0.7);
+  margin:0;
+  text-align: center;
+}
+.script {
+  font-family: &quot;Seaweed Script&quot;;
+  color: #fff;
+  text-align: center;
+  font-size: 40px;
+  position: relative;
+  margin:0;
+}
+.script span {
+  background-color: #222;
+  padding: 0 0.3em;
+}
+.script:before {
+  content:&quot;&quot;;
+  display: block;
+  position: absolute;
+  z-index:-1;
+  top: 50%;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+}
+.text1 {
+  font-size: 60px;
+}
+.text2 {
+  font-size: 169px;
+}
+.text3 {
+  font-size: 100px;
+}</pre>
+</div>
 <div created="20170105114258104" modified="20170105115127456" tags="TableOfContents" title="Buffer SVG Animated">
 <pre>&lt;svg width=&quot;50%&quot; height=&quot;50%&quot; x=&quot;0px&quot; y=&quot;0px&quot; viewBox=&quot;0 0 313.3 321.4&quot; style=&quot;enable-background:new 0 0 313.3 321.4;&quot; xml:space=&quot;preserve&quot;&gt;
   &lt;path class=&quot;layer layer1&quot; d=&quot;M157.1,0c3.8,0,7.9,1.5,11.4,3.2c45.6,21.1,91.2,42.4,136.7,63.8c3.3,1.5,8,2.1,8.1,7c0.1,5-4.7,5.6-7.9,7.1
@@ -8386,7 +8510,42 @@ See the [[control panel|$:/ControlPanel]] for more options.
 
 @@color:orangered; This is a slightly modified empty wiki, adding a few options I need always and a few style changes@@</pre>
 </div>
-<div created="20170111040714295" modified="20170111041324982" tags="TableOfContents" title="Locker Hypnosis/Sci-Fi Circle">
+<div created="20180215032216722" modified="20180215032225909" tags="" title="Hello">
+<pre></pre>
+</div>
+<div created="20170111040845530" modified="20170111041341161" tags="[[Locker Hypnosis/Sci-Fi Circle]] $:/tags/Stylesheet" title="Locker Hypnosis/Sci-Fi Circle - Stylesheet">
+<pre>.largesvg svg {
+  height: 95vh;
+  width: 95vw;
+}
+
+.st0, .st1, .st2, .st3 {
+  fill: none;
+  stroke: #00C196;
+  stroke-width: 42;
+  stroke-miterlimit: 10;
+}
+
+.st0 {
+  stroke-dasharray: 12.1947, 12.1947, 12.1947, 12.1947, 12.1947, 12.1947;
+}
+
+.st1 {
+  stroke-dasharray: 50, 90, 200, 30, 40, 0;
+}
+
+.st2 {
+  stroke-linecap: square;
+  stroke-dasharray: 120, 20, 110, 20, 140;
+}
+
+.st3 {
+  stroke-width: 16;
+  stroke-linecap: square;
+}
+</pre>
+</div>
+<div created="20170111040714295" modified="20180215030233486" tags="TableOfContents" title="Locker Hypnosis/Sci-Fi Circle SVG">
 <pre>Credits: &lt;a href=&quot;http://codepen.io/marcuswallberg/pen/ggbZQJ&quot; target=&quot;_blank&quot;&gt;Marcus Wallberg&lt;/a&gt;
 &lt;div class=&quot;largesvg&quot;&gt;
 &lt;svg version=&quot;1.1&quot; id=&quot;Layer_1&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;http://www.w3.org/1999/xlink&quot; x=&quot;0px&quot; y=&quot;0px&quot;
@@ -8426,40 +8585,8 @@ See the [[control panel|$:/ControlPanel]] for more options.
 &lt;/svg&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20170111040845530" modified="20170111041341161" tags="[[Locker Hypnosis/Sci-Fi Circle]] $:/tags/Stylesheet" title="Locker Hypnosis/Sci-Fi Circle - Stylesheet">
-<pre>.largesvg svg {
-  height: 95vh;
-  width: 95vw;
-}
-
-.st0, .st1, .st2, .st3 {
-  fill: none;
-  stroke: #00C196;
-  stroke-width: 42;
-  stroke-miterlimit: 10;
-}
-
-.st0 {
-  stroke-dasharray: 12.1947, 12.1947, 12.1947, 12.1947, 12.1947, 12.1947;
-}
-
-.st1 {
-  stroke-dasharray: 50, 90, 200, 30, 40, 0;
-}
-
-.st2 {
-  stroke-linecap: square;
-  stroke-dasharray: 120, 20, 110, 20, 140;
-}
-
-.st3 {
-  stroke-width: 16;
-  stroke-linecap: square;
-}
-</pre>
-</div>
-<div created="20180213030154685" modified="20180213031742643" tags="TableOfContents" title="Rainbow box">
-<pre>&lt;div class=&quot;rainbow&quot; style=&quot;height: 800px;&quot;&gt;
+<div created="20180213030154685" modified="20180215030438865" tags="TableOfContents" title="Rainbow box">
+<pre>&lt;div class=&quot;rainbow&quot; style=&quot;min-height:800px&quot;&gt;
 &lt;div class=&quot;rainbowbox box1&quot;&gt;
   &lt;div class=&quot;card&quot;&gt;
     &lt;div class=&quot;circle circle1&quot;&gt;&lt;/div&gt;
@@ -8545,7 +8672,7 @@ See the [[control panel|$:/ControlPanel]] for more options.
 &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20180213031230304" modified="20180213031258266" tags="[[Rainbow box]] $:/tags/Stylesheet" title="Rainbow box stylesheet">
+<div created="20180213031230304" modified="20180215030711234" tags="[[Rainbow box]] $:/tags/Stylesheet" title="Rainbow box stylesheet">
 <pre>.rainbowbox {
   width: 160px;
   height: 160px;
@@ -9063,7 +9190,7 @@ See the [[control panel|$:/ControlPanel]] for more options.
   &lt;/div&gt;
 &lt;/div&gt;</pre>
 </div>
-<div created="20180213024214789" modified="20180213030145956" tags="[[Rotating cat]] $:/tags/Stylesheet" title="Rotating cat stylesheet" type="text/css">
+<div created="20180213024214789" modified="20180215030844520" tags="[[Rotating cat]] $:/tags/Stylesheet" title="Rotating cat stylesheet" type="text/css">
 <pre>.cat {
   position: relative;
   width: 100%;
@@ -9241,10 +9368,19 @@ See the effect on hover.
 color:red;
 }</pre>
 </div>
-<div created="20170114143647750" modified="20170114144640309" tags="TableOfContents" title="Typewriter animation">
+<div created="20180215025504417" modified="20180215030257521" tags="TableOfContents" title="Typewriter animation">
 <pre>From: [ext[CSS-Tricks|https://css-tricks.com/snippets/css/typewriter-effect/]]
 
+Simple macro to present a text in typewriter animation
 
+`&lt;&lt;typew &quot;Hello, let us see how it typewrites&quot;&gt;&gt;`
+
+&lt;&lt;typew &quot;Hello, let us see how it typewrites&quot;&gt;&gt;
+
+[[$:/tesseract/modules/macros/typewriter.js]]</pre>
+</div>
+<div created="20170114143647750" modified="20180215025820775" title="Typewriter animation HTML">
+<pre>
 
 
 
@@ -9255,36 +9391,8 @@ color:red;
 To rerun, close the tiddler and reopen it. 
 </pre>
 </div>
-<div created="20170114143717638" modified="20170114144424110" tags="$:/tags/Stylesheet [[Typewriter animation]]" title="Typewriter animation Stylesheet">
-<pre>.line-1{
-    position: relative;
-    top: 50%;  
-    width: 24em;
-    margin: 0 auto;
-    border-right: 2px solid rgba(255,255,255,.75);
-    font-size: 180%;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    transform: translateY(-50%);    
-line-height:2;
-}
-
-/* Animation */
-.anim-typewriter{
-  animation: typewriter 4s steps(44) 1s 1 normal both,
-             blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter{
-  from{width: 0;}
-  to{width: 24em;}
-}
-@keyframes blinkTextCursor{
-  from{border-right-color: rgba(255,255,255,.75);}
-  to{border-right-color: transparent;}
-}
-
-</pre>
+<div created="20170114143717638" modified="20180215025831830" tags="$:/tags/Stylesheet [[Typewriter animation HTML]]" title="Typewriter animation Stylesheet">
+<pre>.line-1{position:relative;top:50%;width:24em;margin:0 auto;border-right:2px solid rgba(255,255,255,.75);font-size:180%;text-align:center;white-space:nowrap;overflow:hidden;transform:translateY(-50%);line-height:2}.anim-typewriter{animation:typewriter 4s steps(44) 1s 1 normal both,blinkTextCursor .5s steps(44) infinite normal}@keyframes typewriter{from{width:0}to{width:24em}}@keyframes blinkTextCursor{from{border-right-color:rgba(255,255,255,.75)}to{border-right-color:transparent}}</pre>
 </div>
 
 </div>
