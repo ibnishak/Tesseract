@@ -143,6 +143,42 @@ Error message and password prompt
 
 <li>$:/editions/tw5.com/doc-macros</li>
 
+<li>$:/editions/tw5.com/doc-styles</li>
+
+<li>$:/editions/tw5.com/download-empty</li>
+
+<li>$:/editions/tw5.com/if-macro.js</li>
+
+<li>$:/editions/tw5.com/macro-examples/qualify-transcluded</li>
+
+<li>$:/editions/tw5.com/macro-examples/say-hi</li>
+
+<li>$:/editions/tw5.com/macro-examples/say-hi-using-variables</li>
+
+<li>$:/editions/tw5.com/macro-examples/tags-of-current-tiddler</li>
+
+<li>$:/editions/tw5.com/macro-examples/tv-get-export-image-link</li>
+
+<li>$:/editions/tw5.com/macro-examples/tv-wikilink-tooltip</li>
+
+<li>$:/editions/tw5.com/operator-macros</li>
+
+<li>$:/editions/tw5.com/operator-template</li>
+
+<li>$:/editions/tw5.com/railroad/macro-parameter-value</li>
+
+<li>$:/editions/tw5.com/snippets/download-empty-button</li>
+
+<li>$:/editions/tw5.com/style-guide-macros</li>
+
+<li>$:/editions/tw5.com/TiddlerInfo/Sources</li>
+
+<li>$:/editions/tw5.com/variable-macros</li>
+
+<li>$:/editions/tw5.com/version-macros</li>
+
+<li>$:/editions/tw5.com/wikitext-macros</li>
+
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -154,6 +190,8 @@ Error message and password prompt
 <li>$:/plugins/tesseract/attributes</li>
 
 <li>$:/plugins/tesseract/ExtendedInfo</li>
+
+<li>$:/plugins/tesseract/sortan</li>
 
 <li>$:/plugins/tesseract/uuid</li>
 
@@ -176,6 +214,8 @@ Error message and password prompt
 <li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/Action-JSONtid</li>
 
 <li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/ExtendedInfo</li>
+
+<li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/sortan</li>
 
 <li>$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/uuid</li>
 
@@ -223,6 +263,12 @@ Error message and password prompt
 
 <li>Action-JSONtid JSON 2</li>
 
+<li>Apple 10</li>
+
+<li>Apple 8</li>
+
+<li>Apple 9</li>
+
 <li>Attributes Parameter</li>
 
 <li>Disappearing modal</li>
@@ -240,6 +286,8 @@ Error message and password prompt
 <li>MyButtonAttributesJSON</li>
 
 <li>MyButtonAttributesSwal</li>
+
+<li>Sortan - Sorting Alpha numerically</li>
 
 <li>Swal 2</li>
 
@@ -8077,10 +8125,538 @@ This is an example tiddler. See [[Table-of-Contents Macros (Examples)]].
 &lt;/$list&gt;
 \end</pre>
 </div>
+<div created="20150117152612000" modified="20150226162159000" tags="$:/tags/Stylesheet" title="$:/editions/tw5.com/doc-styles">
+<pre>.doc-def {
+	font-style: normal;
+	font-weight: bold;
+}
+
+.doc-em {
+	font-style: italic;
+	font-variant: small-caps;
+	text-decoration: none;
+}
+
+.doc-strong {
+	color: &lt;&lt;colour alert-highlight&gt;&gt;;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.doc-foreign {
+	font-style: italic;
+}
+
+.doc-place {
+	background-color: &lt;&lt;color background&gt;&gt;;
+	border: none;
+	color: &lt;&lt;color very-muted-foreground&gt;&gt;;
+	font-style: normal;
+	font-weight: bold;
+}
+
+.doc-button,
+.doc-tab,
+.doc-tag,
+.doc-tiddler,
+.doc-field,
+.doc-value,
+.doc-operator,
+.doc-var,
+.doc-widget,
+.doc-attr,
+.doc-param {
+	background-color: &lt;&lt;color background&gt;&gt;;
+	border: none;
+	color: &lt;&lt;color very-muted-foreground&gt;&gt;;
+	font-weight: bold;
+	padding: 0;
+}
+
+a .doc-place,
+a .doc-button,
+a .doc-tab,
+a .doc-tag,
+a .doc-tiddler,
+a .doc-field,
+a .doc-value,
+a .doc-operator,
+a .doc-var,
+a .doc-widget,
+a .doc-attr {
+	color: &lt;&lt;color tiddler-link-foreground&gt;&gt;;
+}
+
+.doc-button svg {
+	height: 1em;
+}
+
+td svg {
+	height: 1em;
+}
+
+.doc-key {
+	color: &lt;&lt;color very-muted-foreground&gt;&gt;;
+	font-weight: bold;
+}
+
+.doc-clink code {
+	color: &lt;&lt;colour tiddler-link-foreground&gt;&gt;;
+}
+
+.doc-preamble {
+	border: 2px solid &lt;&lt;colour code-border&gt;&gt;;
+	color: &lt;&lt;colour very-muted-foreground&gt;&gt;;
+	font-size: 90%;
+	margin-left: 0;
+	padding: 0.5em 0.7em;
+}
+
+.doc-note dt {
+	color: &lt;&lt;colour very-muted-foreground&gt;&gt;;
+}
+.doc-note dd {
+	border-left: 2px solid &lt;&lt;colour code-border&gt;&gt;;
+	padding-left: 0.6em;
+}
+
+.doc-example {
+	margin: 1em 0;
+	padding: 0.8em 0;
+}
+.doc-example:hover {
+	background-color: &lt;&lt;colour code-background&gt;&gt;;
+}
+.doc-example ul {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	margin-top: 0.2em;
+}
+.doc-example pre:first-child {
+	margin-top: 0;
+}
+.doc-example-result {
+	border-left: 5px solid &lt;&lt;colour blockquote-bar&gt;&gt;;
+	border-right: 5px solid &lt;&lt;colour blockquote-bar&gt;&gt;;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0 10px;
+}
+.doc-example-result ul {
+	margin-left: 0;
+	padding-left: 10px;
+}
+.doc-example-result ol {
+	margin-left: 0;
+	padding-left: 20px;
+}
+
+.doc-table th, .doc-table tr {
+	vertical-align: top;
+}
+.doc-table th a {
+	font-weight: bold;
+}
+
+tr.doc-table-subheading {
+	height: 2em;
+	vertical-align: middle;
+}
+
+.doc-table.before-tiddler-body {
+	margin-top: 2em;
+}
+
+.doc-icon-block {
+	border-left: 2px solid &lt;&lt;colour code-border&gt;&gt;;
+	margin-left: 3em;
+	padding-left: 0.6em;
+	position: relative;
+}
+.doc-block-icon {
+	position: absolute;
+	left: -3em;
+	top: 0.2em;
+}
+.doc-block-icon .tc-image-tip {
+	fill: &lt;&lt;colour primary&gt;&gt;;
+}
+.doc-block-icon .tc-image-warning {
+	fill: &lt;&lt;colour alert-highlight&gt;&gt;;
+}
+
+.doc-from-version {
+    display: inline-block;
+    border-radius: 1em;
+	background: &lt;&lt;colour tiddler-controls-foreground&gt;&gt;;
+	color: &lt;&lt;colour background&gt;&gt;;
+	fill: &lt;&lt;colour background&gt;&gt;;
+    padding: 0 0.4em;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.5;
+    vertical-align: text-bottom;
+}
+
+.doc-from-version svg {
+	width: 1em;
+	height: 1em;
+    vertical-align: text-bottom;
+}
+
+
+</pre>
+</div>
+<div title="$:/editions/tw5.com/download-empty">
+<pre>\define saveTiddlerFilter()
+[[$:/core]] [[$:/isEncrypted]] [[$:/themes/tiddlywiki/snowwhite]] [[$:/themes/tiddlywiki/vanilla]] -[[$:/boot/boot.css]] -[type[application/javascript]library[yes]] -[[$:/boot/boot.js]] -[[$:/boot/bootprefix.js]] +[sort[title]]
+\end
+\define savingEmpty()
+yes
+\end
+{{$:/core/templates/tiddlywiki5.html}}
+</pre>
+</div>
+<div module-type="macro" title="$:/editions/tw5.com/if-macro.js" type="application/javascript">
+<pre>/*\
+title: $:/editions/tw5.com/if-macro.js
+type: application/javascript
+module-type: macro
+\*/
+(function(){
+
+/*jslint node: true, browser: true */
+/*global $tw: false */
+&quot;use strict&quot;;
+
+exports.name = &quot;.if&quot;;
+
+exports.params = [
+	{ name: &quot;cond&quot; },
+	{ name: &quot;then&quot; },
+	{ name: &quot;else&quot; }
+];
+
+exports.run = function(cond, then, elze) {
+	then = then || &quot;&quot;;
+	elze = elze || &quot;&quot;;
+	return cond ? then : elze;
+};
+
+})();
+</pre>
+</div>
+<div created="20150221171233000" modified="20150221172546000" tags="[[qualify Macro]] [[Macro Examples]]" title="$:/editions/tw5.com/macro-examples/qualify-transcluded" type="text/vnd.tiddlywiki">
+<pre>&lt;$macrocall $name=&quot;.example&quot; n=&quot;1&quot;
+eg=&quot;&quot;&quot;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&lt;&lt;qualify &quot;BaseTiddler&quot;&gt;&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&lt;&lt;transclusion&gt;&gt;&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;&quot;&quot;&quot;/&gt;
+</pre>
+</div>
+<div created="20150221145803000" modified="20150221221536000" title="$:/editions/tw5.com/macro-examples/say-hi" type="text/vnd.tiddlywiki">
+<pre>\define sayhi(name:&quot;Bugs Bunny&quot; address:&quot;Rabbit Hole Hill&quot;)
+Hi, I'm $name$ and I live in $address$.
+\end
+</pre>
+</div>
+<div created="20150221145447000" modified="20150221145626000" title="$:/editions/tw5.com/macro-examples/say-hi-using-variables" type="text/vnd.tiddlywiki">
+<pre>\define say-hi-using-variables()
+Hi, I'm $(name)$ and I live in $(address)$.
+\end
+
+\define name() Bugs
+</pre>
+</div>
+<div created="20150221145803000" title="$:/editions/tw5.com/macro-examples/tags-of-current-tiddler" type="text/vnd.tiddlywiki">
+<pre>\define tags-of-current-tiddler() {{!!tags}}
+</pre>
+</div>
+<div created="20150228123855000" modified="20150228123921000" title="$:/editions/tw5.com/macro-examples/tv-get-export-image-link" type="text/vnd.tiddlywiki">
+<pre>\define tv-get-export-image-link(src) https://www.tiddlywiki.com/$src$
+</pre>
+</div>
+<div created="20150228120252000" modified="20150228120554000" title="$:/editions/tw5.com/macro-examples/tv-wikilink-tooltip" type="text/vnd.tiddlywiki">
+<pre>\define tv-wikilink-tooltip()
+&lt;$transclude field=&quot;tooltip&quot;&gt;(&lt;$transclude field=&quot;caption&quot;/&gt;)&lt;/$transclude&gt;
+\end
+</pre>
+</div>
+<div created="20150117152607000" modified="20150228114306000" tags="$:/tags/Macro" title="$:/editions/tw5.com/operator-macros">
+<pre>\define .operator-examples(op,text:&quot;Examples&quot;) &lt;$link to=&quot;$op$ Operator (Examples)&quot;&gt;$text$&lt;/$link&gt;
+
+\define .operator-example(n,eg,ie)
+&lt;div class=&quot;doc-example&quot;&gt;
+`$eg$`
+&lt;$macrocall $name=&quot;.if&quot; cond=&quot;&quot;&quot;$ie$&quot;&quot;&quot; then=&quot;&quot;&quot;&lt;dd&gt;&amp;rarr; $ie$&lt;/dd&gt;&quot;&quot;&quot;/&gt;
+&lt;$list filter=&quot;[title&lt;.state-prefix&gt;addsuffix{!!title}addsuffix[/]addsuffix[$n$]]&quot; variable=&quot;.state&quot;&gt;
+&lt;$reveal state=&lt;&lt;.state&gt;&gt; type=&quot;nomatch&quot; text=&quot;show&quot;&gt;
+	&lt;dl&gt;
+	&lt;dd&gt;&lt;$button set=&lt;&lt;.state&gt;&gt; setTo=&quot;show&quot;&gt;Try it&lt;/$button&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/$reveal&gt;
+&lt;$reveal state=&lt;&lt;.state&gt;&gt; type=&quot;match&quot; text=&quot;show&quot;&gt;
+	&lt;dl&gt;
+	&lt;dd&gt;&lt;$button set=&lt;&lt;.state&gt;&gt; setTo=&quot;&quot;&gt;Hide&lt;/$button&gt;&lt;/dd&gt;
+	&lt;/dl&gt;
+	&lt;blockquote class=&quot;doc-example-result&quot;&gt;
+	&lt;ul&gt;&lt;$list filter=&quot;&quot;&quot;$eg$&quot;&quot;&quot; emptyMessage=&quot;(empty)&quot;&gt;
+	&lt;li&gt;&lt;$link&gt;&lt;$view field=&quot;title&quot;/&gt;&lt;/$link&gt;&lt;/li&gt;
+	&lt;/$list&gt;&lt;/ul&gt;
+	&lt;/blockquote&gt;
+&lt;/$reveal&gt;
+&lt;/$list&gt;
+\end
+
+\define .this-is-operator-example() This example tiddler is used to illustrate some of the [[Filter Operators]].
+\define .using-days-of-week() These examples make use of the [[Days of the Week]] tiddler.
+\define .s-matching-is-case-sensitive() In looking for matches for &lt;&lt;.place S&gt;&gt;, capital and lowercase letters are treated as different.
+
+\define .node-only-operator()
+
+&lt;$macrocall $name=&quot;.note&quot; _=&quot;This operator is &lt;&lt;.em not&gt;&gt; available when ~TiddlyWiki is running in a web browser.&quot;/&gt;
+
+\end
+</pre>
+</div>
+<div created="20150203173506000" list-before="$:/core/ui/ViewTemplate/body" modified="20150203181725000" tags="$:/tags/ViewTemplate" title="$:/editions/tw5.com/operator-template">
+<pre>\define .op-place()
+&lt;$macrocall $name=&quot;.if&quot;
+  cond=&quot;&quot;&quot;$(op-name)$&quot;&quot;&quot;
+  then=&quot;&lt;&lt;.place '$(op-name)$'&gt;&gt; = &quot;
+  else=&quot;&quot;/&gt;
+\end
+
+\define .op-row()
+&lt;$macrocall $name=&quot;.if&quot;
+  cond=&quot;&quot;&quot;$(op-body)$&quot;&quot;&quot;
+  then=&quot;&quot;&quot;&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;$(op-head)$&lt;/th&gt;&lt;td&gt;&lt;&lt;.op-place&gt;&gt;$(op-body)$&lt;/td&gt;&lt;/tr&gt;&quot;&quot;&quot;
+  else=&quot;&quot;/&gt;
+\end
+
+&lt;$set name=&quot;op-head&quot; value=&quot;&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value=&quot;&quot;&gt;
+&lt;$set name=&quot;op-name&quot; value=&quot;&quot;&gt;
+&lt;$list filter=&quot;[all[current]tag[Filter Operators]]&quot;&gt;
+&lt;table class=&quot;doc-table before-tiddler-body&quot;&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;purpose&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-purpose}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;[[input|Filter Syntax]]&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-input}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;`!` input&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-neg-input}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;[[suffix|Filter Step]]&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-suffix}}&gt;
+&lt;$set name=&quot;op-name&quot; value={{!!op-suffix-name}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;[[parameter|Filter Parameter]]&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-parameter}}&gt;
+&lt;$set name=&quot;op-name&quot; value={{!!op-parameter-name}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;output&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-output}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;$set name=&quot;op-head&quot; value=&quot;`!` output&quot;&gt;
+&lt;$set name=&quot;op-body&quot; value={{!!op-neg-output}}&gt;
+&lt;&lt;.op-row&gt;&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;!--&gt;
+&lt;/table&gt;
+&lt;$list filter=&quot;[all[current]has[from-version]]&quot; variable=&quot;listItem&quot;&gt;
+&lt;$macrocall $name=&quot;.from-version&quot; version={{!!from-version}}/&gt;
+&lt;/$list&gt;
+&lt;/$list&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+</pre>
+</div>
+<div created="20150220191009000" modified="20150221111554000" title="$:/editions/tw5.com/railroad/macro-parameter-value" type="text/vnd.tiddlywiki.railroad">
+<pre>( '&quot;&quot;&quot;' [:{/'anything but &quot;&quot;&quot;'/}] '&quot;&quot;&quot;'
+| '&quot;'   [:{/'anything but &quot;'/}]   '&quot;'
+| &quot;'&quot;   [:{/&quot;anything but '&quot;/}]   &quot;'&quot;
+| &quot;[[&quot;  [:{/&quot;anything but ]&quot;/}]   &quot;]]&quot;
+| {/&quot;&quot;&quot;anything but ' &quot; or whitespace&quot;&quot;&quot;/}
+)
+</pre>
+</div>
+<div title="$:/editions/tw5.com/snippets/download-empty-button">
+<pre>&lt;$button class=&quot;tc-btn-big-green&quot;&gt;
+&lt;$action-sendmessage $message=&quot;tm-download-file&quot; $param=&quot;$:/editions/tw5.com/download-empty&quot; filename=&quot;empty.html&quot;/&gt;
+Download Empty {{$:/core/images/save-button}}
+&lt;/$button&gt;</pre>
+</div>
+<div tags="$:/tags/Macro" title="$:/editions/tw5.com/style-guide-macros">
+<pre>\define style-guide(good,bad)
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;Good&lt;/th&gt;
+&lt;td&gt;``$good$``&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt;Bad&lt;/th&gt;
+&lt;td&gt;``$bad$``&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+\end
+</pre>
+</div>
+<div caption="Sources" tags="$:/tags/TiddlerInfo" title="$:/editions/tw5.com/TiddlerInfo/Sources">
+<pre>\define static-link-base()
+https://tiddlywiki.com/static/$(title)$.html
+\end
+
+\define make-static-link()
+&lt;$set name=&quot;title&quot; filter=&quot;[&lt;currentTiddler&gt;encodeuricomponent[]encodeuricomponent[]]&quot; select=&quot;0&quot;&gt;
+&lt;a href=&lt;&lt;static-link-base&gt;&gt; class=&quot;tc-tiddlylink-external&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;$text text=&lt;&lt;static-link-base&gt;&gt;/&gt;&lt;/a&gt;
+&lt;/$set&gt;
+\end
+
+\define github-link-base()
+https://github.com/Jermolene/TiddlyWiki5/blob/master/editions/tw5.com/tiddlers/$(title)$
+\end
+
+\define make-github-link()
+&lt;$set name=&quot;title&quot; value={{$:/config/OriginalTiddlerPaths##$(currentTiddler)$}}&gt;
+&lt;$set name=&quot;title&quot; filter=&quot;[&lt;title&gt;encodeuricomponent[]]&quot; select=&quot;0&quot;&gt;
+&lt;a href=&lt;&lt;github-link-base&gt;&gt; class=&quot;tc-tiddlylink-external&quot; target=&quot;_blank&quot; rel=&quot;noopener noreferrer&quot;&gt;&lt;$text text=&lt;&lt;github-link-base&gt;&gt;/&gt;&lt;/a&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;
+\end
+
+&lt;$list filter=&quot;[all[current]!is[system]!is[shadow]]&quot;&gt;
+
+A static HTML representation of this tiddler is available at the URL:
+
+* &lt;&lt;make-static-link&gt;&gt;
+
+Help us to improve the documentation by sending a ~GitHub pull request for this tiddler:
+
+* &lt;&lt;make-github-link&gt;&gt;
+
+&lt;/$list&gt;
+</pre>
+</div>
+<div created="20150228114241000" modified="20150228141312000" tags="$:/tags/Macro" title="$:/editions/tw5.com/variable-macros">
+<pre>\define .variable-examples(v,text:&quot;Examples&quot;) &lt;$link to=&quot;$v$ Variable (Examples)&quot;&gt;$text$&lt;/$link&gt;
+\define .macro-examples(m,text:&quot;Examples&quot;) &lt;$link to=&quot;$m$ Macro (Examples)&quot;&gt;$text$&lt;/$link&gt;
+\define .widget-examples(w,text:&quot;Examples&quot;) &lt;$link to=&quot;$w$ Widget (Examples)&quot;&gt;$text$&lt;/$link&gt;
+
+\define .js-macro-link(_) [[$_$|https://tiddlywiki.com/dev/index.html#JavaScript%20Macros]]
+
+\define .this-is-static-link-variable() &lt;&lt;.tip &quot;This variable has no useful effect when ~TiddlyWiki is running in a browser, as the `href` attribute is ignored there -- links between tiddlers are performed by JavaScript instead. The variable comes into play when one is using the [[Node.js configuration|TiddlyWiki on Node.js]] to [[generate a static version|RenderTiddlersCommand]] of a wiki.&quot;&gt;&gt;
+
+\define .this-is-toolbar-config-variable(configTiddler)
+
+It can be set to &lt;&lt;.value yes&gt;&gt; or &lt;&lt;.value no&gt;&gt; prior to transcluding such a button.
+
+The standard page template sets it to the value found in [[$configTiddler$]], with the result that this becomes the default for the whole page. The user can adjust this default by using a tickbox on the &lt;&lt;.controlpanel-tab Settings&gt;&gt; tab of the [[Control Panel|$:/ControlPanel]].
+\end
+</pre>
+</div>
+<div created="20161008085627406" modified="20161008085627406" tags="$:/tags/Macro" title="$:/editions/tw5.com/version-macros">
+<pre>\define .from-version(version)
+&lt;span class=&quot;doc-from-version&quot;&gt;{{$:/core/images/warning}} New in $version$&lt;/span&gt;
+\end
+</pre>
+</div>
+<div created="20150117184156000" modified="20150117184616000" tags="$:/tags/Macro" title="$:/editions/tw5.com/wikitext-macros">
+<pre>\define wikitext-example(src)
+&lt;div class=&quot;doc-example&quot;&gt;
+
+&lt;$macrocall $name=&quot;copy-to-clipboard-above-right&quot; src=&lt;&lt;__src__&gt;&gt;/&gt;
+
+```
+$src$
+```
+
+That renders as:
+
+$src$
+
+... and the underlying HTML is:
+
+$$$text/vnd.tiddlywiki&gt;text/html
+$src$
+$$$
+&lt;/div&gt;
+\end
+
+\define wikitext-example-without-html(src)
+&lt;div class=&quot;doc-example&quot;&gt;
+
+&lt;$macrocall $name=&quot;copy-to-clipboard-above-right&quot; src=&lt;&lt;__src__&gt;&gt;/&gt;
+
+```
+$src$
+```
+
+That renders as:
+
+$src$
+&lt;/div&gt;
+\end
+
+\define tw-code(tiddler)
+&lt;$codeblock language={{$tiddler$!!type}} code={{$tiddler$}}/&gt;
+\end
+
+\define tw-code-link(tiddler)
+[[$tiddler$]]:
+
+&lt;&lt;tw-code $tiddler$&gt;&gt;
+\end</pre>
+</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/tesseract/modules/widgets/action-jsontid.js]]</pre>
+# [[$:/editions/tw5.com/doc-macros]]
+# [[$:/editions/tw5.com/doc-styles]]
+# [[$:/editions/tw5.com/download-empty]]
+# [[$:/editions/tw5.com/if-macro.js]]
+# [[$:/editions/tw5.com/macro-examples/qualify-transcluded]]
+# [[$:/editions/tw5.com/macro-examples/say-hi]]
+# [[$:/editions/tw5.com/macro-examples/say-hi-using-variables]]
+# [[$:/editions/tw5.com/macro-examples/tags-of-current-tiddler]]
+# [[$:/editions/tw5.com/macro-examples/tv-get-export-image-link]]
+# [[$:/editions/tw5.com/macro-examples/tv-wikilink-tooltip]]
+# [[$:/editions/tw5.com/operator-macros]]
+# [[$:/editions/tw5.com/operator-template]]
+# [[$:/editions/tw5.com/railroad/macro-parameter-value]]
+# [[$:/editions/tw5.com/snippets/download-empty-button]]
+# [[$:/editions/tw5.com/style-guide-macros]]
+# [[$:/editions/tw5.com/TiddlerInfo/Sources]]
+# [[$:/editions/tw5.com/variable-macros]]
+# [[$:/editions/tw5.com/version-macros]]
+# [[$:/editions/tw5.com/wikitext-macros]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8375,6 +8951,30 @@ This is an example tiddler. See [[Table-of-Contents Macros (Examples)]].
     }
 }</pre>
 </div>
+<div author="Riz" bag="default" created="20180221124747146" description="Sortan: Filter for sorting alphanumerically" list="Readme" modified="20180221132448921" plugin-type="plugin" revision="2" source="https://ibnishak.github.io/Tesseract/" title="$:/plugins/tesseract/sortan" type="application/json" version="0.6.4">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/tesseract/modules/filters/sortan.js&quot;: {
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/tesseract/modules/filters/sortan.js\ntype: application/javascript\nmodule-type: filteroperator\n\nFilter operator for sorting alpha-numerically\n\n\\*/\n(function() {\n\n\t/*jslint node: true, browser: true */\n\t/*global $tw: false */\n\t\&quot;use strict\&quot;;\n\n\t/*\n\tExport our filter function\n\t*/\n\texports.sortan = function(source, operator, options) {\n\t\tvar results = prepare_results(source);\n\t\tsortTiddlers(results, operator.operand || \&quot;title\&quot;, operator.prefix === \&quot;!\&quot;, false);\n\t\treturn results;\n\t};\n\n\texports.sortancs = function(source, operator, options) {\n\t\tvar results = prepare_results(source);\n\t\tsortTiddlers(results, operator.operand || \&quot;title\&quot;, operator.prefix === \&quot;!\&quot;, true);\n\t\treturn results;\n\t};\n\n\n\n\tvar prepare_results = function(source) {\n\t\tvar results = [];\n\t\tsource(function(tiddler, title) {\n\t\t\tresults.push(title);\n\t\t});\n\t\treturn results;\n\t};\n\n\n\tvar sortTiddlers = function(titles, sortField, isDescending, isCaseSensitive) {\n\t\tvar self = this;\n\t\ttitles.sort(function(a, b) {\n\t\t\t\tif (sortField !== \&quot;title\&quot;) {\n\t\t\t\tvar tiddlerA = self.getTiddler(a),\n\t\t\t\t\ttiddlerB = self.getTiddler(b);\n\t\t\t\tif (tiddlerA) {\n\t\t\t\t\ta = tiddlerA.fields[sortField] || \&quot;\&quot;;\n\t\t\t\t} else {\n\t\t\t\t\ta = \&quot;\&quot;;\n\t\t\t\t}\n\t\t\t\tif (tiddlerB) {\n\t\t\t\t\tb = tiddlerB.fields[sortField] || \&quot;\&quot;;\n\t\t\t\t} else {\n\t\t\t\t\tb = \&quot;\&quot;;\n\t\t\t\t}\n\t\t\t}\n\n\t\t\tif (isCaseSensitive) {\n\t\t\t\treturn isDescending ? b.localeCompare(a, undefined, {numeric: true, sensitivity: 'variant'}) : a.localeCompare(b, undefined, {numeric: true, sensitivity: 'variant'});\n\t\t\t}\n\t\t\telse{\n\t\t\t\treturn isDescending ? b.localeCompare(a, undefined, {numeric: true, sensitivity: 'base'}) : a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});\n\n\t\t\t}\n\n\t\t});\n\t};\n})();&quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;title&quot;: &quot;$:/tesseract/modules/filters/sortan.js&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;module-type&quot;: &quot;filteroperator&quot;,
+            &quot;modified&quot;: &quot;20180221124230183&quot;,
+            &quot;created&quot;: &quot;20180221121922241&quot;
+        },
+        &quot;$:/plugins/tesseract/sortan/Readme&quot;: {
+            &quot;created&quot;: &quot;20180221124801306&quot;,
+            &quot;text&quot;: &quot;&lt;table class=\&quot;doc-table before-tiddler-body\&quot;&gt;\n&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;purpose&lt;/th&gt;&lt;td&gt;sort the input alphanumerically&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;input&lt;/th&gt;&lt;td&gt;a selection of titles&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;&lt;a class=\&quot;tc-tiddlylink tc-tiddlylink-resolves\&quot; href=\&quot;#Filter%20Parameter\&quot;&gt;parameter&lt;/a&gt;&lt;/th&gt;&lt;td&gt;&lt;code class=\&quot;doc-place\&quot;&gt;F&lt;/code&gt; = the name of a &lt;a class=\&quot;tc-tiddlylink tc-tiddlylink-resolves\&quot; href=\&quot;#TiddlerFields\&quot;&gt;field&lt;/a&gt;, defaulting to &lt;code class=\&quot;doc-field\&quot;&gt;title&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;output&lt;/th&gt;&lt;td&gt;the input, sorted into ascending order by field &lt;code class=\&quot;doc-field\&quot;&gt;F&lt;/code&gt;, treating field values alphanumerically&lt;/td&gt;&lt;/tr&gt;\n&lt;tr&gt;&lt;th align=\&quot;left\&quot;&gt;&lt;code&gt;!&lt;/code&gt; output&lt;/th&gt;&lt;td&gt;the input, likewise sorted into descending order&lt;/td&gt;&lt;/tr&gt;\n&lt;/table&gt;\n\n\nUse ''sortancs'' for case sensitive option&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/sortan/Readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20180221132350557&quot;
+        }
+    }
+}</pre>
+</div>
 <div author="Riz" description="UUID: Creating Unique Identifiers" list="Readme" plugin-type="plugin" title="$:/plugins/tesseract/uuid" type="application/json" version="1.0.2">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -8422,14 +9022,17 @@ This is an example tiddler. See [[Table-of-Contents Macros (Examples)]].
 <div created="20180215004147556" modified="20180215004147556" title="$:/state/plugin-info--896887961-$:/plugins/tesseract/uuid---896887961">
 <pre>Readme</pre>
 </div>
-<div created="20180218191336489" modified="20180218191336489" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/Action-JSONtid">
-<pre>yes</pre>
+<div created="20180218191336489" modified="20180221132307391" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/Action-JSONtid">
+<pre>no</pre>
 </div>
 <div created="20180214232956136" modified="20180215004500966" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/ExtendedInfo">
 <pre>no</pre>
 </div>
-<div created="20180215004327478" modified="20180215004327478" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/uuid">
+<div created="20180221132436942" modified="20180221132436942" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/sortan">
 <pre>yes</pre>
+</div>
+<div created="20180215004327478" modified="20180221132434016" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/uuid">
+<pre>no</pre>
 </div>
 <div created="20170105060742729" modified="20180218190351954" title="$:/state/tab--1498284803">
 <pre>$:/core/ui/AdvancedSearch/Filter</pre>
@@ -8446,7 +9049,7 @@ This is an example tiddler. See [[Table-of-Contents Macros (Examples)]].
 <div created="20170105061321393" modified="20170105061321393" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="Action-JSONtid" title="$:/StoryList">
+<div list="[[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170117111211968" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -8670,8 +9273,8 @@ pre {
 <div created="20180218191324086" modified="20180218191324086" result="false" title="$:/temp/tinka/CreateVars">
 <pre></pre>
 </div>
-<div created="20180214233005468" modified="20180220004305388" title="$:/temp/tinka/search">
-<pre>action</pre>
+<div created="20180214233005468" modified="20180221132459429" title="$:/temp/tinka/search">
+<pre>read</pre>
 </div>
 <div created="20170105060053130" modified="20170105060053130" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -8962,6 +9565,15 @@ renders as:
 ]
 </pre>
 </div>
+<div created="20180221125336300" modified="20180221125434929" tags="Fruits" title="Apple 10">
+<pre></pre>
+</div>
+<div created="20180221125310387" modified="20180221125445819" tags="Fruits" title="Apple 8">
+<pre></pre>
+</div>
+<div created="20180221125330703" modified="20180221125440519" tags="Fruits" title="Apple 9">
+<pre></pre>
+</div>
 <div created="20180217161418747" modified="20180217173849867" tags="TableOfContents" title="Attributes Parameter">
 <pre>!! ''Install''
 [[$:/plugins/tesseract/attributes]]
@@ -9126,6 +9738,70 @@ onclick: alert(&quot;hmm, that seems to have worked&quot;)</pre>
 </div>
 <div created="20180217172937383" modified="20180217173003941" tags="" title="MyButtonAttributesSwal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;Hello there&quot;)</pre>
+</div>
+<div created="20180221125135000" list="123-asd 19-asd 12345-asd asd-123 asd-12" modified="20180221132538285" tags="TableOfContents" title="Sortan - Sorting Alpha numerically">
+<pre>&lt;table class=&quot;doc-table before-tiddler-body&quot;&gt;
+&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;purpose&lt;/th&gt;&lt;td&gt;sort the input alphanumerically&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;input&lt;/th&gt;&lt;td&gt;a selection of titles&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;&lt;a class=&quot;tc-tiddlylink tc-tiddlylink-resolves&quot; href=&quot;#Filter%20Parameter&quot;&gt;parameter&lt;/a&gt;&lt;/th&gt;&lt;td&gt;&lt;code class=&quot;doc-place&quot;&gt;F&lt;/code&gt; = the name of a &lt;a class=&quot;tc-tiddlylink tc-tiddlylink-resolves&quot; href=&quot;#TiddlerFields&quot;&gt;field&lt;/a&gt;, defaulting to &lt;code class=&quot;doc-field&quot;&gt;title&lt;/code&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;output&lt;/th&gt;&lt;td&gt;the input, sorted into ascending order by field &lt;code class=&quot;doc-field&quot;&gt;F&lt;/code&gt;, treating field values alphanumerically&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;th align=&quot;left&quot;&gt;&lt;code&gt;!&lt;/code&gt; output&lt;/th&gt;&lt;td&gt;the input, likewise sorted into descending order&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+
+Use ''sortancs'' for case sensitive option
+
+!Current Situation
+
+Consider the tiddlers [[Apple 8]], [[Apple 9]] and [[Apple 10]]
+
+```
+&lt;$list filter=&quot;[tag[Fruits]sort[title]]&quot;&gt;
+```
+
+&lt;$list filter=&quot;[tag[Fruits]sort[title]]&quot;&gt;
+
+
+&lt;/$list&gt;
+
+```
+&lt;$list filter=&quot;[tag[Fruits]nsort[title]]&quot;&gt;
+```
+
+&lt;$list filter=&quot;[tag[Fruits]nsort[title]]&quot;&gt;
+
+
+&lt;/$list&gt;
+
+! Usage
+
+```
+&lt;$list filter=&quot;[tag[Fruits]sortan[title]]&quot;&gt;
+```
+
+&lt;$list filter=&quot;[tag[Fruits]sortan[title]]&quot;&gt;
+
+
+&lt;/$list&gt;
+
+
+```
+&lt;$list filter=&quot;[tag[Fruits]!sortan[title]]&quot;&gt;
+```
+
+&lt;$list filter=&quot;[tag[Fruits]!sortan[title]]&quot;&gt;
+
+
+&lt;/$list&gt;
+
+```
+&lt;$list filter=&quot;123-asd 19-asd 12345-asd asd-123 asd-12 +[sortan[]]&quot;&gt;
+```
+
+&lt;$list filter=&quot;123-asd 19-asd 12345-asd asd-123 asd-12 +[sortan[]]&quot;&gt;
+
+&lt;/$list&gt;
+</pre>
 </div>
 <div created="20180217173515621" modified="20180217173538522" tags="" title="Swal 2" type="application/x-tiddler-dictionary">
 <pre>onclick: swal({  buttons: {    cancel: true,    confirm: &quot;Confirm&quot;,    roll: {      text: &quot;Do a barrell roll!&quot;,      value: &quot;roll&quot;,    },  },});</pre>
