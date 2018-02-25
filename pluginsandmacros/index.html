@@ -191,6 +191,8 @@ Error message and password prompt
 
 <li>$:/plugins/tesseract/ExtendedInfo</li>
 
+<li>$:/plugins/tesseract/forloop</li>
+
 <li>$:/plugins/tesseract/sortan</li>
 
 <li>$:/plugins/tesseract/uuid</li>
@@ -286,6 +288,8 @@ Error message and password prompt
 <li>MyButtonAttributesJSON</li>
 
 <li>MyButtonAttributesSwal</li>
+
+<li>Simple for-loop macro</li>
 
 <li>Sortan - Sorting Alpha numerically</li>
 
@@ -8638,25 +8642,7 @@ $src$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/editions/tw5.com/doc-macros]]
-# [[$:/editions/tw5.com/doc-styles]]
-# [[$:/editions/tw5.com/download-empty]]
-# [[$:/editions/tw5.com/if-macro.js]]
-# [[$:/editions/tw5.com/macro-examples/qualify-transcluded]]
-# [[$:/editions/tw5.com/macro-examples/say-hi]]
-# [[$:/editions/tw5.com/macro-examples/say-hi-using-variables]]
-# [[$:/editions/tw5.com/macro-examples/tags-of-current-tiddler]]
-# [[$:/editions/tw5.com/macro-examples/tv-get-export-image-link]]
-# [[$:/editions/tw5.com/macro-examples/tv-wikilink-tooltip]]
-# [[$:/editions/tw5.com/operator-macros]]
-# [[$:/editions/tw5.com/operator-template]]
-# [[$:/editions/tw5.com/railroad/macro-parameter-value]]
-# [[$:/editions/tw5.com/snippets/download-empty-button]]
-# [[$:/editions/tw5.com/style-guide-macros]]
-# [[$:/editions/tw5.com/TiddlerInfo/Sources]]
-# [[$:/editions/tw5.com/variable-macros]]
-# [[$:/editions/tw5.com/version-macros]]
-# [[$:/editions/tw5.com/wikitext-macros]]</pre>
+# [[$:/plugins/tesseract/forloop]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8951,6 +8937,33 @@ $src$
     }
 }</pre>
 </div>
+<div author="Riz" bag="default" created="20180225013317688" description="Simple forloop: To iterate a varible till maximum value" list="Readme" modified="20180225013317688" plugin-type="plugin" revision="1" title="$:/plugins/tesseract/forloop" type="application/json" version="0.4.2">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/plugins/tesseract/forloop/forloop.js&quot;: {
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tesseract/forloop/forloop.js\ntype: application/javascript\nmodule-type: macro\n\nMacro to create forloop\n\\*/\n(function() {\n\n    /*jslint node: true, browser: true */\n    /*global $tw: false */\n    \&quot;use strict\&quot;;\n\n    /*\n    Information about this macro\n    */\n\n    exports.name = \&quot;for\&quot;;\n\n    exports.params = [{\n        name: \&quot;text\&quot;\n    }, {\n        name: \&quot;forvar\&quot;\n    }, {\n        name: \&quot;initval\&quot;\n    }, {\n        name: \&quot;maxval\&quot;\n    }, {\n        name: \&quot;iter\&quot;\n    }, {\n        name: \&quot;joiner\&quot;\n}];\n\n    /*\n    Run the macro\n    */\n    exports.run = function(text, forvar, initval, maxval, iter, joiner) {\n        var textBuffer = [],\n            i = parseInt(initval) || 0,\n            max = parseInt(maxval) || 10,\n            iter = parseInt(iter) || 1,\n            forvar=forvar || \&quot;$undefined$\&quot;;\n        for (; i &lt;= max; i += iter) {\n            textBuffer.push(text.replace(forvar, i));\n        }\n\n        return textBuffer.join( joiner || '&lt;br/&gt;');\n\n    }\n})();&quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/forloop/forloop.js&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;module-type&quot;: &quot;macro&quot;,
+            &quot;modified&quot;: &quot;20180224213619356&quot;,
+            &quot;created&quot;: &quot;20180224191616732&quot;
+        },
+        &quot;$:/plugins/tesseract/forloop/Readme&quot;: {
+            &quot;text&quot;: &quot;!!! __''Purpose''__\n\nProvides a simple for-loop, which replaces specified word with iterated values. \n\n!!! __''Parameters''__\n\n\n\n|!Parameter |!Description |\n|text |The string/text to be processed [Mandatory] |\n|forvar |The variable in the string that should be replaced with the value of for loop. |\n|initval |The initial value to be assigned to the looping variable [Defaults to 0]|\n|maxval |The cut-off value of the loop [Defaults to 10]|\n|iter |The number by which looping variable should iterate [Defaults to 1] |\n|joiner|The string/symbol/html-entity that should separate the iteration of loop. [Defaults to `&lt;br/&gt;`]|\n\n\n!!! __''Usage''__\n\n```\n&lt;$macrocall $name=for\ntext=\&quot;Hello world myvar\&quot;\nforvar=myvar\ninitval=5\nmaxval=100\niter=5\n/&gt;\n```\n\nOutputs\n\n&lt;$macrocall\n$name=for\ntext=\&quot;Hello world myvar\&quot;\nforvar=myvar\ninitval=5\nmaxval=100\niter=5\n/&gt;\n\nTIP: You can use transclusion or helper macros to assign the text. for eg `text={{Hello There}}` or `text=&lt;&lt;mytextmacro&gt;&gt;`\n\nWhile it is not mandatory, it is a recommended practice to wrap  the variable with $, for eg: $myvar$ -for readability purposes. &quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;0&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/forloop/Readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20180224214024511&quot;,
+            &quot;created&quot;: &quot;20180224210717725&quot;
+        }
+    }
+}</pre>
+</div>
 <div author="Riz" bag="default" created="20180221124747146" description="Sortan: Filter for sorting alphanumerically" list="Readme" modified="20180221132448921" plugin-type="plugin" revision="2" source="https://ibnishak.github.io/Tesseract/" title="$:/plugins/tesseract/sortan" type="application/json" version="0.6.4">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -9049,7 +9062,7 @@ $src$
 <div created="20170105061321393" modified="20170105061321393" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
+<div list="[[Simple for-loop macro]] [[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170117111211968" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -9738,6 +9751,51 @@ onclick: alert(&quot;hmm, that seems to have worked&quot;)</pre>
 </div>
 <div created="20180217172937383" modified="20180217173003941" tags="" title="MyButtonAttributesSwal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;Hello there&quot;)</pre>
+</div>
+<div created="20180225013631065" modified="20180225013657059" tags="TableOfContents" title="Simple for-loop macro">
+<pre>!!! __''Purpose''__
+
+Provides a simple for-loop, which replaces specified word with iterated values. 
+
+!!! __''Parameters''__
+
+
+
+|!Parameter |!Description |
+|text |The string/text to be processed [Mandatory] |
+|forvar |The variable in the string that should be replaced with the value of for loop. |
+|initval |The initial value to be assigned to the looping variable [Defaults to 0]|
+|maxval |The cut-off value of the loop [Defaults to 10]|
+|iter |The number by which looping variable should iterate [Defaults to 1] |
+|joiner|The string/symbol/html-entity that should separate the iteration of loop. [Defaults to `&lt;br/&gt;`]|
+
+
+!!! __''Usage''__
+
+```
+&lt;$macrocall $name=for
+text=&quot;Hello world myvar&quot;
+forvar=myvar
+initval=5
+maxval=100
+iter=5
+/&gt;
+```
+
+Outputs
+
+&lt;$macrocall
+$name=for
+text=&quot;Hello world myvar&quot;
+forvar=myvar
+initval=5
+maxval=100
+iter=5
+/&gt;
+
+TIP: You can use transclusion or helper macros to assign the text. for eg `text={{Hello There}}` or `text=&lt;&lt;mytextmacro&gt;&gt;`
+
+While it is not mandatory, it is a recommended practice to wrap  the variable with $, for eg: $myvar$ -for readability purposes. </pre>
 </div>
 <div created="20180221125135000" list="123-asd 19-asd 12345-asd asd-123 asd-12" modified="20180221133600725" tags="TableOfContents" title="Sortan - Sorting Alpha numerically">
 <pre>&lt;table class=&quot;doc-table before-tiddler-body&quot;&gt;
