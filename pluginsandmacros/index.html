@@ -275,6 +275,8 @@ Error message and password prompt
 
 <li>Disappearing modal</li>
 
+<li>Doc Macros</li>
+
 <li>Extended Info plugin</li>
 
 <li>GettingStarted: Version 5.1.13</li>
@@ -9062,7 +9064,7 @@ $src$
 <div created="20170105061321393" modified="20170105061321393" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Simple for-loop macro]] [[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
+<div list="[[Doc Macros]] [[Simple for-loop macro]] [[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170117111211968" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -9659,6 +9661,13 @@ renders as:
 <div created="20180217173255783" modified="20180217173418107" tags="" title="Disappearing modal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;This modal will disappear in 3 seconds on its own!&quot;, { buttons: false,   timer: 3000, });</pre>
 </div>
+<div created="20180225015010247" modified="20180225015526303" tags="$:/tags/Macro" title="Doc Macros">
+<pre>\define install(name)
+# __Back up__ your wiki
+# Drag and drop the following link to your wiki: $name$
+# Save the wiki and refresh the browser window
+\end</pre>
+</div>
 <div created="20180214232559691" modified="20180214234124014" tags="TableOfContents" title="Extended Info plugin">
 <pre>This plugin adds the following info tiddlers on loading wiki.
 
@@ -9752,8 +9761,11 @@ onclick: alert(&quot;hmm, that seems to have worked&quot;)</pre>
 <div created="20180217172937383" modified="20180217173003941" tags="" title="MyButtonAttributesSwal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;Hello there&quot;)</pre>
 </div>
-<div created="20180225013631065" modified="20180225013657059" tags="TableOfContents" title="Simple for-loop macro">
-<pre>!!! __''Purpose''__
+<div created="20180225013631065" modified="20180225015548076" tags="TableOfContents" title="Simple for-loop macro">
+<pre>!!! __''Install''__
+&lt;&lt;install $:/plugins/tesseract/forloop&gt;&gt;
+
+!!! __''Purpose''__
 
 Provides a simple for-loop, which replaces specified word with iterated values. 
 
