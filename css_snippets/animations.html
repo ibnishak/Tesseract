@@ -207,6 +207,8 @@ Error message and password prompt
 
 <li>Buffer SVG Stylesheet</li>
 
+<li>Calender SVG: Always shows today's date</li>
+
 <li>GettingStarted: Version 5.1.13</li>
 
 <li>Hello</li>
@@ -8006,7 +8008,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[New Tiddler 1]]</pre>
+# [[Calender]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8056,7 +8058,7 @@ $:/config/PageControlButtons/Visibility/$(listItem)$
 <div created="20180213022440061" modified="20180213022440061" title="$:/state/toc/TableOfContents-Typewriter animation--81657105">
 <pre>open</pre>
 </div>
-<div list="" title="$:/StoryList">
+<div list="[[Calender SVG: Always shows today's date]] $:/Import [[Locker Hypnosis/Sci-Fi Circle SVG]] [[Rainbow box]] [[Rotating cat]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170107095212835" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -8116,8 +8118,8 @@ text-decoration:none;
     }
 }</pre>
 </div>
-<div created="20170114143811690" modified="20180215034328256" title="$:/temp/search">
-<pre>new</pre>
+<div created="20170114143811690" modified="20180226091017407" title="$:/temp/search">
+<pre></pre>
 </div>
 <div created="20180215025153598" modified="20180215025704279" module-type="macro" tags="" title="$:/tesseract/modules/macros/typewriter.js" type="application/javascript">
 <pre>/*\
@@ -8489,6 +8491,23 @@ c-0.1,2.4-2.7,4.8-4.9,5.9c-32.2,15.3-64.5,30.3-96.8,45.4c-13.9,6.5-27.7,13.1-41.
   animation-name: layer3;
 }
 </pre>
+</div>
+<div created="20180226030409329" modified="20180226091104084" tags="TableOfContents" title="Calender SVG: Always shows today's date" type="application/x-tiddler">
+<pre>&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; aria-label=&quot;Calendar&quot; role=&quot;img&quot; viewBox=&quot;0 0 512 512&quot;&gt;
+&lt;path d=&quot;M512 455c0 32-25 57-57 57H57c-32 0-57-25-57-57V128c0-31 25-57 57-57h398c32 0 57 26 57 57z&quot; fill=&quot;#e0e7ec&quot;/&gt;
+&lt;path d=&quot;M484 0h-47c2 4 4 9 4 14a28 28 0 1 1-53-14H124c3 4 4 9 4 14A28 28 0 1 1 75 0H28C13 0 0 13 0 28v157h512V28c0-15-13-28-28-28z&quot; fill=&quot;#dd2f45&quot;/&gt;
+&lt;g fill=&quot;#f3aab9&quot;&gt;
+  &lt;circle cx=&quot;470&quot; cy=&quot;142&quot; r=&quot;14&quot;/&gt;
+  &lt;circle cx=&quot;470&quot; cy=&quot;100&quot; r=&quot;14&quot;/&gt;
+  &lt;circle cx=&quot;427&quot; cy=&quot;142&quot; r=&quot;14&quot;/&gt;
+  &lt;circle cx=&quot;427&quot; cy=&quot;100&quot; r=&quot;14&quot;/&gt;
+  &lt;circle cx=&quot;384&quot; cy=&quot;142&quot; r=&quot;14&quot;/&gt;
+  &lt;circle cx=&quot;384&quot; cy=&quot;100&quot; r=&quot;14&quot;/&gt;
+&lt;/g&gt;
+&lt;text id=&quot;month&quot; x=&quot;32&quot; y=&quot;164&quot; fill=&quot;#fff&quot; font-family=&quot;monospace&quot; font-size=&quot;140px&quot; style=&quot;text-anchor: left; text-transform: uppercase;&quot;&gt;&lt;&lt;now mmm&gt;&gt;&lt;/text&gt;
+&lt;text id=&quot;day&quot; x=&quot;256&quot; y=&quot;400&quot; fill=&quot;#66757f&quot; font-family=&quot;monospace&quot; font-size=&quot;256px&quot; style=&quot;text-anchor: middle&quot;&gt;&lt;&lt;now DD&gt;&gt;&lt;/text&gt;
+&lt;text id=&quot;weekday&quot; x=&quot;256&quot; y=&quot;480&quot; fill=&quot;#66757f&quot; font-family=&quot;monospace&quot; font-size=&quot;64px&quot; style=&quot;text-anchor: middle&quot;&gt;&lt;&lt;now DDD&gt;&gt;&lt;/text&gt;
+&lt;/svg&gt;</pre>
 </div>
 <div created="20170106043943716" modified="20170106044113538" tags="" title="GettingStarted: Version 5.1.13">
 <pre>\define lingo-base() $:/language/ControlPanel/Basics/
@@ -9381,7 +9400,6 @@ Simple macro to present a text in typewriter animation
 </div>
 <div created="20170114143647750" modified="20180215025820775" title="Typewriter animation HTML">
 <pre>
-
 
 
 
