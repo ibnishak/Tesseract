@@ -189,9 +189,13 @@ Error message and password prompt
 
 <li>$:/plugins/tesseract/attributes</li>
 
+<li>$:/plugins/tesseract/dragSnippetTitle</li>
+
 <li>$:/plugins/tesseract/ExtendedInfo</li>
 
 <li>$:/plugins/tesseract/forloop</li>
+
+<li>$:/plugins/tesseract/ImportResolution</li>
 
 <li>$:/plugins/tesseract/reveal-Ext</li>
 
@@ -281,9 +285,13 @@ Error message and password prompt
 
 <li>Doc Macros</li>
 
+<li>dragSnippetTitle</li>
+
 <li>Extended Info plugin</li>
 
 <li>GettingStarted: Version 5.1.13</li>
+
+<li>Import Resolution</li>
 
 <li>More things to do with Attributes Parameter</li>
 
@@ -8652,7 +8660,7 @@ $src$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[UncheckActions: Adding Uncheck actions to checkbox widget]]</pre>
+# [[$:/plugins/tesseract/dragSnippetTitle]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8924,6 +8932,27 @@ $src$
     }
 }</pre>
 </div>
+<div author="Riz" bag="default" created="20180301023549459" description="dragSnippetTitle: Add title to dragged snippets" list="Readme" modified="20180301084114103" plugin-type="plugin" revision="3" title="$:/plugins/tesseract/dragSnippetTitle" type="application/json" version="0.3.12">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/core/modules/utils/dom/dragndrop.js&quot;: {
+            &quot;created&quot;: &quot;20180301023501917&quot;,
+            &quot;title&quot;: &quot;$:/core/modules/utils/dom/dragndrop.js&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/utils/dom/dragndrop.js\ntype: application/javascript\nmodule-type: utils\n\nBrowser data transfer utilities, used with the clipboard and drag and drop\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\n/*\nOptions:\n\ndomNode: dom node to make draggable\ndragImageType: \&quot;pill\&quot; or \&quot;dom\&quot;\ndragTiddlerFn: optional function to retrieve the title of tiddler to drag\ndragFilterFn: optional function to retreive the filter defining a list of tiddlers to drag\nwidget: widget to use as the contect for the filter\n*/\nexports.makeDraggable = function(options) {\n\tvar dragImageType = options.dragImageType || \&quot;dom\&quot;,\n\t\tdragImage,\n\t\tdomNode = options.domNode;\n\t// Make the dom node draggable (not necessary for anchor tags)\n\tif((domNode.tagName || \&quot;\&quot;).toLowerCase() !== \&quot;a\&quot;) {\n\t\tdomNode.setAttribute(\&quot;draggable\&quot;,\&quot;true\&quot;);\t\t\n\t}\n\t// Add event handlers\n\t$tw.utils.addEventListeners(domNode,[\n\t\t{name: \&quot;dragstart\&quot;, handlerFunction: function(event) {\n\t\t\t// Collect the tiddlers being dragged\n\t\t\tvar dragTiddler = options.dragTiddlerFn &amp;&amp; options.dragTiddlerFn(),\n\t\t\t\tdragFilter = options.dragFilterFn &amp;&amp; options.dragFilterFn(),\n\t\t\t\ttitles = dragTiddler ? [dragTiddler] : [];\n\t\t\tif(dragFilter) {\n\t\t\t\ttitles.push.apply(titles,options.widget.wiki.filterTiddlers(dragFilter,options.widget));\n\t\t\t}\n\t\t\tvar titleString = $tw.utils.stringifyList(titles);\n\t\t\t// Check that we've something to drag\n\t\t\tif(titles.length &gt; 0 &amp;&amp; event.target === domNode) {\n\t\t\t\t// Mark the drag in progress\n\t\t\t\t$tw.dragInProgress = domNode;\n\t\t\t\t// Set the dragging class on the element being dragged\n\t\t\t\t$tw.utils.addClass(event.target,\&quot;tc-dragging\&quot;);\n\t\t\t\t// Create the drag image elements\n\t\t\t\tdragImage = options.widget.document.createElement(\&quot;div\&quot;);\n\t\t\t\tdragImage.className = \&quot;tc-tiddler-dragger\&quot;;\n\t\t\t\tvar inner = options.widget.document.createElement(\&quot;div\&quot;);\n\t\t\t\tinner.className = \&quot;tc-tiddler-dragger-inner\&quot;;\n\t\t\t\tinner.appendChild(options.widget.document.createTextNode(\n\t\t\t\t\ttitles.length === 1 ? \n\t\t\t\t\t\ttitles[0] :\n\t\t\t\t\t\ttitles.length + \&quot; tiddlers\&quot;\n\t\t\t\t));\n\t\t\t\tdragImage.appendChild(inner);\n\t\t\t\toptions.widget.document.body.appendChild(dragImage);\n\t\t\t\t// Set the data transfer properties\n\t\t\t\tvar dataTransfer = event.dataTransfer;\n\t\t\t\t// Set up the image\n\t\t\t\tdataTransfer.effectAllowed = \&quot;all\&quot;;\n\t\t\t\tif(dataTransfer.setDragImage) {\n\t\t\t\t\tif(dragImageType === \&quot;pill\&quot;) {\n\t\t\t\t\t\tdataTransfer.setDragImage(dragImage.firstChild,-16,-16);\n\t\t\t\t\t} else {\n\t\t\t\t\t\tvar r = domNode.getBoundingClientRect();\n\t\t\t\t\t\tdataTransfer.setDragImage(domNode,event.clientX-r.left,event.clientY-r.top);\n\t\t\t\t\t}\n\t\t\t\t}\n\t\t\t\t// Set up the data transfer\n\t\t\t\tif(dataTransfer.clearData) {\n\t\t\t\t\tdataTransfer.clearData();\t\t\t\t\t\n\t\t\t\t}\n\t\t\t\tvar jsonData = [];\n\t\t\t\tif(titles.length &gt; 1) {\n\t\t\t\t\ttitles.forEach(function(title) {\n\t\t\t\t\t\tjsonData.push(options.widget.wiki.getTiddlerAsJson(title));\n\t\t\t\t\t});\n\t\t\t\t\tjsonData = \&quot;[\&quot; + jsonData.join(\&quot;,\&quot;) + \&quot;]\&quot;;\n\t\t\t\t} else {\n\t\t\t\t\tjsonData = options.widget.wiki.getTiddlerAsJson(titles[0]);\n\t\t\t\t}\n\t\t\t\t// IE doesn't like these content types\n\t\t\t\tif(!$tw.browser.isIE) {\n\t\t\t\t\tdataTransfer.setData(\&quot;text/vnd.tiddler\&quot;,jsonData);\n\t\t\t\t\tdataTransfer.setData(\&quot;text/plain\&quot;,titleString);\n\t\t\t\t\tdataTransfer.setData(\&quot;text/x-moz-url\&quot;,\&quot;data:text/vnd.tiddler,\&quot; + encodeURIComponent(jsonData));\n\t\t\t\t}\n\t\t\t\tdataTransfer.setData(\&quot;URL\&quot;,\&quot;data:text/vnd.tiddler,\&quot; + encodeURIComponent(jsonData));\n\t\t\t\tdataTransfer.setData(\&quot;Text\&quot;,titleString);\n\t\t\t\tevent.stopPropagation();\n\t\t\t}\n\t\t\treturn false;\n\t\t}},\n\t\t{name: \&quot;dragend\&quot;, handlerFunction: function(event) {\n\t\t\tif(event.target === domNode) {\n\t\t\t\t$tw.dragInProgress = null;\n\t\t\t\t// Remove the dragging class on the element being dragged\n\t\t\t\t$tw.utils.removeClass(event.target,\&quot;tc-dragging\&quot;);\n\t\t\t\t// Delete the drag image element\n\t\t\t\tif(dragImage) {\n\t\t\t\t\tdragImage.parentNode.removeChild(dragImage);\n\t\t\t\t\tdragImage = null;\n\t\t\t\t}\n\t\t\t}\n\t\t\treturn false;\n\t\t}}\n\t]);\n};\n\nexports.importDataTransfer = function(dataTransfer,fallbackTitle,callback) {\n\t// Try each provided data type in turn\n\tfor(var t=0; t&lt;importDataTypes.length; t++) {\n\t\tif(!$tw.browser.isIE || importDataTypes[t].IECompatible) {\n\t\t\t// Get the data\n\t\t\tvar dataType = importDataTypes[t];\n\t\t\t\tvar data = dataTransfer.getData(dataType.type);\n\t\t\t// Import the tiddlers in the data\n\t\t\tif(data !== \&quot;\&quot; &amp;&amp; data !== null) {\n\t\t\t\tif($tw.log.IMPORT) {\n\t\t\t\t\tconsole.log(\&quot;Importing data type '\&quot; + dataType.type + \&quot;', data: '\&quot; + data + \&quot;'\&quot;)\n\t\t\t\t}\n\t\t\t\tvar tiddlerFields = dataType.toTiddlerFieldsArray(data,fallbackTitle);\n\t\t\t\tcallback(tiddlerFields);\n\t\t\t\treturn;\n\t\t\t}\n\t\t}\n\t}\n};\n\nvar importDataTypes = [\n\t{type: \&quot;text/vnd.tiddler\&quot;, IECompatible: false, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\treturn parseJSONTiddlers(data,fallbackTitle);\n\t}},\n\t{type: \&quot;URL\&quot;, IECompatible: true, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\t// Check for tiddler data URI\n\t\tvar match = decodeURIComponent(data).match(/^data\\:text\\/vnd\\.tiddler,(.*)/i);\n\t\tif(match) {\n\t\t\treturn parseJSONTiddlers(match[1],fallbackTitle);\n\t\t} else {\n\t\t\treturn [{title: fallbackTitle, text: data}]; // As URL string\n\t\t}\n\t}},\n\t{type: \&quot;text/x-moz-url\&quot;, IECompatible: false, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\t// Check for tiddler data URI\n\t\tvar match = decodeURIComponent(data).match(/^data\\:text\\/vnd\\.tiddler,(.*)/i);\n\t\tif(match) {\n\t\t\treturn parseJSONTiddlers(match[1],fallbackTitle);\n\t\t} else {\n\t\t\treturn [{title: fallbackTitle, text: data}]; // As URL string\n\t\t}\n\t}},\n\t{type: \&quot;text/html\&quot;, IECompatible: false, toTiddlerFieldsArray: function(data,fallbackTitle) {\n               // Remove the html tags and add first 5 words as title\n\t\tvar importtitle = data.replace(/(&lt;([^&gt;]+)&gt;)/ig, \&quot; \&quot;);\n\t\treturn [{title: importtitle.split(/\\s+/).slice(0,6).join(' '), text: data}];\n\t}},\n\t{type: \&quot;text/plain\&quot;, IECompatible: false, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\treturn [{title: fallbackTitle, text: data}];\n\t}},\n\t{type: \&quot;Text\&quot;, IECompatible: true, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\treturn [{title: fallbackTitle, text: data}];\n\t}},\n\t{type: \&quot;text/uri-list\&quot;, IECompatible: false, toTiddlerFieldsArray: function(data,fallbackTitle) {\n\t\treturn [{title: fallbackTitle, text: data}];\n\t}}\n];\n\nfunction parseJSONTiddlers(json,fallbackTitle) {\n\tvar data = JSON.parse(json);\n\tif(!$tw.utils.isArray(data)) {\n\t\tdata = [data];\n\t}\n\tdata.forEach(function(fields) {\n\t\tfields.title = fields.title || fallbackTitle;\n\t});\n\treturn data;\n};\n\n})();\n&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;module-type&quot;: &quot;utils&quot;,
+            &quot;modified&quot;: &quot;20180301042636409&quot;
+        },
+        &quot;$:/plugins/tesseract/dragSnippetTitle/Readme&quot;: {
+            &quot;created&quot;: &quot;20180301083304582&quot;,
+            &quot;text&quot;: &quot;By default, TW sets title of dragged snippet as \&quot;Untitled\&quot;.\n\nThis plugin adds the capability to title the snippet-tiddler using the first five words of dragged snippet.&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/dragSnippetTitle/Readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20180301084048437&quot;
+        }
+    }
+}</pre>
+</div>
 <div author="Riz" created="20180215004313535" description="Extended Info: Adding more info tiddlers to the store" list="Readme" modified="20180215004322464" plugin-type="plugin" title="$:/plugins/tesseract/ExtendedInfo" type="application/json" version="0.5.9">
 <pre>{
     &quot;tiddlers&quot;: {
@@ -8970,6 +8999,50 @@ $src$
             &quot;tags&quot;: &quot;&quot;,
             &quot;modified&quot;: &quot;20180224214024511&quot;,
             &quot;created&quot;: &quot;20180224210717725&quot;
+        }
+    }
+}</pre>
+</div>
+<div author="Riz" bag="default" created="20180301084022037" description="ImportResolution: Auto enumerates the imported tiddlers if there is a conflict" list="Readme" modified="20180301084357793" plugin-type="plugin" revision="5" title="$:/plugins/tesseract/ImportResolution" type="application/json" version="0.5.3">
+<pre>{
+    &quot;tiddlers&quot;: {
+        &quot;$:/language/Import/Upgrader/Tiddler/Duplicate&quot;: {
+            &quot;created&quot;: &quot;20180301083553942&quot;,
+            &quot;text&quot;: &quot; Duplicate Title&quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;text/vnd.tiddlywiki&quot;,
+            &quot;title&quot;: &quot;$:/language/Import/Upgrader/Tiddler/Duplicate&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20180301083742267&quot;
+        },
+        &quot;$:/plugins/tesseract/ImportResolution/ImportResolution.js&quot;: {
+            &quot;created&quot;: &quot;20180301083528020&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tesseract/dragSnippetTitle/ImportResolution.js\ntype: application/javascript\nmodule-type: upgrader\n\nUpgrader module that if there are existing tiddlers with same title as inccoming tiddler\n\n\\*/\n\n(function() {\n\t/*jslint node: true, browser: true */\n\t/*global $tw: false */\n\t\&quot;use strict\&quot;;\n\n\texports.upgrade = function(wiki, titles, tiddlers) {\n\t\tvar self = this,\n\t\t\tmessages = {};\n\t\t// Check for tiddlers on our list\n\t\t$tw.utils.each(titles, function(title) {\n\t\t\tvar existingTiddler = wiki.getTiddler(title);\n\t\t\tif (\n\t\t\t\texistingTiddler &amp;&amp;\n\t\t\t\texistingTiddler.hasField(\&quot;plugin-type\&quot;) == false\n\t\t\t) {\n\t\t\t\tmessages[title] = $tw.language.getString(\n\t\t\t\t\t\&quot;Import/Upgrader/Tiddler/Duplicate\&quot;\n\t\t\t\t);\n\n\t\t\t\tvar tiddler = new $tw.Tiddler(tiddlers[title], {\n\t\t\t\t\ttitle: wiki.generateNewTitle(title),\n\t\t\t\t\tcaption: title\n\t\t\t\t});\n\t\t\t\ttiddlers[tiddler.fields.title] = tiddler.fields;\n\t\t\t\ttiddlers[title] = Object.create(null);\n\t\t\t}\n\t\t});\n\t\treturn messages;\n\t};\n})();\n&quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;application/javascript&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/ImportResolution/ImportResolution.js&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;module-type&quot;: &quot;upgrader&quot;,
+            &quot;modified&quot;: &quot;20180301083755820&quot;
+        },
+        &quot;$:/plugins/tesseract/ImportResolution/ImportWarning&quot;: {
+            &quot;created&quot;: &quot;20180301083611336&quot;,
+            &quot;text&quot;: &quot;.tc-import tbody td:nth-child(3)  {\ncolor:red\n}&quot;,
+            &quot;bag&quot;: &quot;default&quot;,
+            &quot;revision&quot;: &quot;1&quot;,
+            &quot;type&quot;: &quot;text/css&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/ImportResolution/ImportWarning&quot;,
+            &quot;tags&quot;: &quot;$:/tags/Stylesheet&quot;,
+            &quot;modified&quot;: &quot;20180301083812882&quot;
+        },
+        &quot;$:/plugins/tesseract/ImportResolution/Readme&quot;: {
+            &quot;created&quot;: &quot;20180301084329079&quot;,
+            &quot;text&quot;: &quot;Original title is added as caption&quot;,
+            &quot;title&quot;: &quot;$:/plugins/tesseract/ImportResolution/Readme&quot;,
+            &quot;tags&quot;: &quot;&quot;,
+            &quot;modified&quot;: &quot;20180301084346929&quot;
         }
     }
 }</pre>
@@ -9118,7 +9191,7 @@ $src$
 <div created="20170105061321393" modified="20170105061321393" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="[[Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget]] [[UncheckActions: Adding Uncheck actions to checkbox widget]] $:/Import [[Simple for-loop macro]] [[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
+<div list="dragSnippetTitle [[Import Resolution]] [[UncheckActions: Adding Uncheck actions to checkbox widget]] $:/plugins/tesseract/dragSnippetTitle/Readme $:/plugins/tesseract/dragSnippetTitle $:/Import [[Simple for-loop macro]] [[Sortan - Sorting Alpha numerically]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170117111211968" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -9722,6 +9795,18 @@ renders as:
 # Save the wiki and refresh the browser window
 \end</pre>
 </div>
+<div created="20180301084914876" modified="20180301085116431" tags="TableOfContents" title="dragSnippetTitle">
+<pre>
+!!! __''Install''__
+
+&lt;&lt;install $:/plugins/tesseract/dragSnippetTitle&gt;&gt;
+
+!!! __''Introduction''__
+
+By default, TW sets title of dragged snippet as &quot;Untitled&quot;.
+
+This plugin adds the capability to title the snippet-tiddler using the first five words of dragged snippet. If you are worried about duplicate titles while importing, use [[Import Resolution]] plugin</pre>
+</div>
 <div created="20180214232559691" modified="20180214234124014" tags="TableOfContents" title="Extended Info plugin">
 <pre>This plugin adds the following info tiddlers on loading wiki.
 
@@ -9758,6 +9843,16 @@ See the [[control panel|$:/ControlPanel]] for more options.
 
 
 @@color:orangered; This is a slightly modified empty wiki, adding a few options I need always and a few style changes@@</pre>
+</div>
+<div created="20180301084542076" modified="20180301084817992" tags="TableOfContents" title="Import Resolution">
+<pre>!!! __''Install''__
+
+&lt;&lt;install $:/plugins/tesseract/ImportResolution&gt;&gt;
+
+
+!!! __''Introduction''__
+
+ In case the tiddler already exists while importing, it ''auto enumerates'' the title in existing TW protocol and sets the'' original title as caption''</pre>
 </div>
 <div created="20180217170023370" modified="20180217173706919" tags="" title="More things to do with Attributes Parameter">
 <pre>More interesting things can be don with attributes parameter. One of them is [ext[Sweetalerts|https://sweetalert.js.org/]]. 
