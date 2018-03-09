@@ -241,6 +241,14 @@ Error message and password prompt
 
 <li>$:/state/SampleReveal1</li>
 
+<li>$:/state/SampleRevealGTEQwithNumericals</li>
+
+<li>$:/state/SampleRevealLessthanWithNumericals</li>
+
+<li>$:/state/SampleRevealLTEQwithNumericals</li>
+
+<li>$:/state/SampleRevealNoMatchWithText</li>
+
 <li>$:/state/tab--1498284803</li>
 
 <li>$:/state/tab--1963855381</li>
@@ -293,6 +301,8 @@ Error message and password prompt
 
 <li>Attributes Parameter</li>
 
+<li>CaseSensitivity</li>
+
 <li>Disappearing modal</li>
 
 <li>Doc Macros</li>
@@ -303,7 +313,27 @@ Error message and password prompt
 
 <li>GettingStarted: Version 5.1.13</li>
 
+<li>GreaterthanWithNumericals</li>
+
+<li>GTEQwithAlphaNum</li>
+
+<li>GTEQwithAlphaNum2</li>
+
+<li>GTEQwithNumericals</li>
+
+<li>GTEQwithText</li>
+
+<li>GTEQwithText2</li>
+
+<li>GTwithText</li>
+
 <li>Import Resolution</li>
+
+<li>LessthanWithNumericals</li>
+
+<li>LTEQwithNumericals</li>
+
+<li>MatchwithText</li>
 
 <li>More things to do with Attributes Parameter</li>
 
@@ -317,7 +347,11 @@ Error message and password prompt
 
 <li>MyButtonAttributesSwal</li>
 
+<li>NoMatchWithText</li>
+
 <li>Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget</li>
+
+<li>RevealExt Examples Macro</li>
 
 <li>Simple for-loop macro</li>
 
@@ -8674,7 +8708,18 @@ $src$
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
-# [[$:/plugins/tesseract/swal]]</pre>
+# [[GreaterthanWithNumericals]]
+# [[GTEQwithAlphaNum]]
+# [[GTEQwithAlphaNum 2]]
+# [[GTEQwithNumericals]]
+# [[GTEQwithText]]
+# [[GTEQwithText2]]
+# [[GTwithText]]
+# [[LessthanWithNumericals]]
+# [[LTEQwithNumericals]]
+# [[MatchwithText]]
+# [[NoMatchWithText]]
+# [[CaseSensitivity]]</pre>
 </div>
 <div title="$:/isEncrypted">
 <pre>no</pre>
@@ -8925,7 +8970,7 @@ $src$
     }
 }</pre>
 </div>
-<div author="Riz" description="Attributes: Add attributes to your button widgets" list="Readme" plugin-type="plugin" title="$:/plugins/tesseract/attributes" type="application/json" version="0.6.6">
+<div author="Riz" description="Attributes: Add attributes to your button widgets" list="Readme" plugin-type="plugin" title="$:/plugins/tesseract/attributes" type="application/json" version="0.6.7">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/core/modules/widgets/button.js&quot;: {
@@ -9061,18 +9106,18 @@ $src$
     }
 }</pre>
 </div>
-<div author="Riz" bag="default" created="20180226101117638" description="Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget" list="Readme" modified="20180226101729903" plugin-type="plugin" revision="3" title="$:/plugins/tesseract/reveal-Ext" type="application/json" version="0.6.5">
+<div author="Riz" bag="default" created="20180226101117638" description="Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget" list="Readme" modified="20180226101729903" plugin-type="plugin" revision="3" title="$:/plugins/tesseract/reveal-Ext" type="application/json" version="0.6.6">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/plugins/tesseract/reveal-Ext/reveal.js&quot;: {
-            &quot;created&quot;: &quot;20180226095134521&quot;,
-            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/widgets/reveal.js\ntype: application/javascript\nmodule-type: widget\n\nReveal widget\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n\nvar RevealWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nRevealWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nRevealWidget.prototype.render = function(parent,nextSibling) {\n\tthis.parentDomNode = parent;\n\tthis.computeAttributes();\n\tthis.execute();\n\tvar tag = this.parseTreeNode.isBlock ? \&quot;div\&quot; : \&quot;span\&quot;;\n\tif(this.revealTag &amp;&amp; $tw.config.htmlUnsafeElements.indexOf(this.revealTag) === -1) {\n\t\ttag = this.revealTag;\n\t}\n\tvar domNode = this.document.createElement(tag);\n\tvar classes = this[\&quot;class\&quot;].split(\&quot; \&quot;) || [];\n\tclasses.push(\&quot;tc-reveal\&quot;);\n\tdomNode.className = classes.join(\&quot; \&quot;);\n\tif(this.style) {\n\t\tdomNode.setAttribute(\&quot;style\&quot;,this.style);\n\t}\n\tparent.insertBefore(domNode,nextSibling);\n\tthis.renderChildren(domNode,null);\n\tif(!domNode.isTiddlyWikiFakeDom &amp;&amp; this.type === \&quot;popup\&quot; &amp;&amp; this.isOpen) {\n\t\tthis.positionPopup(domNode);\n\t\t$tw.utils.addClass(domNode,\&quot;tc-popup\&quot;); // Make sure that clicks don't dismiss popups within the revealed content\n\t}\n\tif(!this.isOpen) {\n\t\tdomNode.setAttribute(\&quot;hidden\&quot;,\&quot;true\&quot;);\n\t}\n\tthis.domNodes.push(domNode);\n};\n\nRevealWidget.prototype.positionPopup = function(domNode) {\n\tdomNode.style.position = \&quot;absolute\&quot;;\n\tdomNode.style.zIndex = \&quot;1000\&quot;;\n\tswitch(this.position) {\n\t\tcase \&quot;left\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left - domNode.offsetWidth) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = this.popup.top + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;above\&quot;:\n\t\t\tdomNode.style.left = this.popup.left + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top - domNode.offsetHeight) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;aboveright\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height - domNode.offsetHeight) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;right\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = this.popup.top + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;belowleft\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width - domNode.offsetWidth) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tdefault: // Below\n\t\t\tdomNode.style.left = this.popup.left + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t}\n};\n\n/*\nCompute the internal state of the widget\n*/\nRevealWidget.prototype.execute = function() {\n\t// Get our parameters\n\tthis.state = this.getAttribute(\&quot;state\&quot;);\n\tthis.revealTag = this.getAttribute(\&quot;tag\&quot;);\n\tthis.type = this.getAttribute(\&quot;type\&quot;);\n\tthis.text = this.getAttribute(\&quot;text\&quot;);\n\tthis.position = this.getAttribute(\&quot;position\&quot;);\n\tthis[\&quot;class\&quot;] = this.getAttribute(\&quot;class\&quot;,\&quot;\&quot;);\n\tthis.style = this.getAttribute(\&quot;style\&quot;,\&quot;\&quot;);\n\tthis[\&quot;default\&quot;] = this.getAttribute(\&quot;default\&quot;,\&quot;\&quot;);\n\tthis.animate = this.getAttribute(\&quot;animate\&quot;,\&quot;no\&quot;);\n\tthis.retain = this.getAttribute(\&quot;retain\&quot;,\&quot;no\&quot;);\n\tthis.openAnimation = this.animate === \&quot;no\&quot; ? undefined : \&quot;open\&quot;;\n\tthis.closeAnimation = this.animate === \&quot;no\&quot; ? undefined : \&quot;close\&quot;;\n\t// Compute the title of the state tiddler and read it\n\tthis.stateTitle = this.state;\n\tthis.readState();\n\t// Construct the child widgets\n\tvar childNodes = this.isOpen ? this.parseTreeNode.children : [];\n\tthis.hasChildNodes = this.isOpen;\n\tthis.makeChildWidgets(childNodes);\n};\n\n/*\nRead the state tiddler\n*/\nRevealWidget.prototype.readState = function() {\n\t// Read the information from the state tiddler\n\tvar state = this.stateTitle ? this.wiki.getTextReference(this.stateTitle,this[\&quot;default\&quot;],this.getVariable(\&quot;currentTiddler\&quot;)) : this[\&quot;default\&quot;];\n\tswitch(this.type) {\n\t\tcase \&quot;popup\&quot;:\n\t\t\tthis.readPopupState(state);\n\t\t\tbreak;\n\t\tcase \&quot;match\&quot;:\n\t\t\tthis.readMatchState(state);\n\t\t\tbreak;\n\t\tcase \&quot;nomatch\&quot;:\n\t\t\tthis.readMatchState(state);\n\t\t\tthis.isOpen = !this.isOpen;\n\t\t\tbreak;\n\t\tcase \&quot;lt\&quot;:\n\t\t\tthis.readMatchStateltgt(state);\n\t\t\tbreak;\n\t\tcase \&quot;gt\&quot;:\n\t\t\tthis.readMatchStateltgt(state);\n\t\t\tthis.isOpen = !this.isOpen;\n\t\t\tbreak;\n\t\tcase \&quot;lteq\&quot;:\n\t\t\tthis.readMatchStatelteq(state);\n\t\t\tbreak;\n\t\tcase \&quot;gteq\&quot;:\n\t\t\tthis.readMatchStategteq(state);\n\t\t\tbreak;\n\t}\n};\n\nRevealWidget.prototype.readMatchState = function(state) {\n\tthis.isOpen = state === this.text;\n};\nRevealWidget.prototype.readMatchStateltgt = function(state) {\n\tthis.isOpen = (parseInt(state, 10) &lt; parseInt(this.text, 10))?true:false;\n};\nRevealWidget.prototype.readMatchStatelteq = function(state) {\n\tthis.isOpen = (parseInt(state, 10) &lt;= parseInt(this.text, 10))?true:false;\n};\nRevealWidget.prototype.readMatchStategteq = function(state) {\n\tthis.isOpen = (parseInt(state, 10) &gt;= parseInt(this.text, 10))?true:false;\n};\nRevealWidget.prototype.readPopupState = function(state) {\n\tvar popupLocationRegExp = /^\\((-?[0-9\\.E]+),(-?[0-9\\.E]+),(-?[0-9\\.E]+),(-?[0-9\\.E]+)\\)$/,\n\t\tmatch = popupLocationRegExp.exec(state);\n\t// Check if the state matches the location regexp\n\tif(match) {\n\t\t// If so, we're open\n\t\tthis.isOpen = true;\n\t\t// Get the location\n\t\tthis.popup = {\n\t\t\tleft: parseFloat(match[1]),\n\t\t\ttop: parseFloat(match[2]),\n\t\t\twidth: parseFloat(match[3]),\n\t\t\theight: parseFloat(match[4])\n\t\t};\n\t} else {\n\t\t// If not, we're closed\n\t\tthis.isOpen = false;\n\t}\n};\n\n/*\nSelectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering\n*/\nRevealWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif(changedAttributes.state || changedAttributes.type || changedAttributes.text || changedAttributes.position || changedAttributes[\&quot;default\&quot;] || changedAttributes.animate) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t} else {\n\t\tvar refreshed = false,\n\t\t\tcurrentlyOpen = this.isOpen;\n\t\tthis.readState();\n\t\tif(this.isOpen !== currentlyOpen) {\n\t\t\tif(this.retain === \&quot;yes\&quot;) {\n\t\t\t\tthis.updateState();\n\t\t\t} else {\n\t\t\t\tthis.refreshSelf();\n\t\t\t\trefreshed = true;\n\t\t\t}\n\t\t}\n\t\treturn this.refreshChildren(changedTiddlers) || refreshed;\n\t}\n};\n\n/*\nCalled by refresh() to dynamically show or hide the content\n*/\nRevealWidget.prototype.updateState = function() {\n\t// Read the current state\n\tthis.readState();\n\t// Construct the child nodes if needed\n\tvar domNode = this.domNodes[0];\n\tif(this.isOpen &amp;&amp; !this.hasChildNodes) {\n\t\tthis.hasChildNodes = true;\n\t\tthis.makeChildWidgets(this.parseTreeNode.children);\n\t\tthis.renderChildren(domNode,null);\n\t}\n\t// Animate our DOM node\n\tif(!domNode.isTiddlyWikiFakeDom &amp;&amp; this.type === \&quot;popup\&quot; &amp;&amp; this.isOpen) {\n\t\tthis.positionPopup(domNode);\n\t\t$tw.utils.addClass(domNode,\&quot;tc-popup\&quot;); // Make sure that clicks don't dismiss popups within the revealed content\n\n\t}\n\tif(this.isOpen) {\n\t\tdomNode.removeAttribute(\&quot;hidden\&quot;);\n        $tw.anim.perform(this.openAnimation,domNode);\n\t} else {\n\t\t$tw.anim.perform(this.closeAnimation,domNode,{callback: function() {\n\t\t\tdomNode.setAttribute(\&quot;hidden\&quot;,\&quot;true\&quot;);\n        }});\n\t}\n};\n\nexports.reveal = RevealWidget;\n\n})();\n&quot;,
-            &quot;bag&quot;: &quot;default&quot;,
-            &quot;revision&quot;: &quot;1&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/plugins/tesseract/reveal-Ext/reveal.js\ntype: application/javascript\nmodule-type: widget\n\nReveal widget\n\n\\*/\n(function(){\n\n/*jslint node: true, browser: true */\n/*global $tw: false */\n\&quot;use strict\&quot;;\n\nvar Widget = require(\&quot;$:/core/modules/widgets/widget.js\&quot;).widget;\n\nvar RevealWidget = function(parseTreeNode,options) {\n\tthis.initialise(parseTreeNode,options);\n};\n\n/*\nInherit from the base widget class\n*/\nRevealWidget.prototype = new Widget();\n\n/*\nRender this widget into the DOM\n*/\nRevealWidget.prototype.render = function(parent,nextSibling) {\n\tthis.parentDomNode = parent;\n\tthis.computeAttributes();\n\tthis.execute();\n\tvar tag = this.parseTreeNode.isBlock ? \&quot;div\&quot; : \&quot;span\&quot;;\n\tif(this.revealTag &amp;&amp; $tw.config.htmlUnsafeElements.indexOf(this.revealTag) === -1) {\n\t\ttag = this.revealTag;\n\t}\n\tvar domNode = this.document.createElement(tag);\n\tvar classes = this[\&quot;class\&quot;].split(\&quot; \&quot;) || [];\n\tclasses.push(\&quot;tc-reveal\&quot;);\n\tdomNode.className = classes.join(\&quot; \&quot;);\n\tif(this.style) {\n\t\tdomNode.setAttribute(\&quot;style\&quot;,this.style);\n\t}\n\tparent.insertBefore(domNode,nextSibling);\n\tthis.renderChildren(domNode,null);\n\tif(!domNode.isTiddlyWikiFakeDom &amp;&amp; this.type === \&quot;popup\&quot; &amp;&amp; this.isOpen) {\n\t\tthis.positionPopup(domNode);\n\t\t$tw.utils.addClass(domNode,\&quot;tc-popup\&quot;); // Make sure that clicks don't dismiss popups within the revealed content\n\t}\n\tif(!this.isOpen) {\n\t\tdomNode.setAttribute(\&quot;hidden\&quot;,\&quot;true\&quot;);\n\t}\n\tthis.domNodes.push(domNode);\n};\n\nRevealWidget.prototype.positionPopup = function(domNode) {\n\tdomNode.style.position = \&quot;absolute\&quot;;\n\tdomNode.style.zIndex = \&quot;1000\&quot;;\n\tswitch(this.position) {\n\t\tcase \&quot;left\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left - domNode.offsetWidth) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = this.popup.top + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;above\&quot;:\n\t\t\tdomNode.style.left = this.popup.left + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top - domNode.offsetHeight) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;aboveright\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height - domNode.offsetHeight) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;right\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = this.popup.top + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tcase \&quot;belowleft\&quot;:\n\t\t\tdomNode.style.left = (this.popup.left + this.popup.width - domNode.offsetWidth) + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t\tdefault: // Below\n\t\t\tdomNode.style.left = this.popup.left + \&quot;px\&quot;;\n\t\t\tdomNode.style.top = (this.popup.top + this.popup.height) + \&quot;px\&quot;;\n\t\t\tbreak;\n\t}\n};\n\n/*\nCompute the internal state of the widget\n*/\nRevealWidget.prototype.execute = function() {\n\t// Get our parameters\n\tthis.state = this.getAttribute(\&quot;state\&quot;);\n\tthis.revealTag = this.getAttribute(\&quot;tag\&quot;);\n\tthis.type = this.getAttribute(\&quot;type\&quot;);\n\tthis.text = this.getAttribute(\&quot;text\&quot;);\n\tthis.position = this.getAttribute(\&quot;position\&quot;);\n\tthis[\&quot;class\&quot;] = this.getAttribute(\&quot;class\&quot;,\&quot;\&quot;);\n\tthis.style = this.getAttribute(\&quot;style\&quot;,\&quot;\&quot;);\n\tthis[\&quot;default\&quot;] = this.getAttribute(\&quot;default\&quot;,\&quot;\&quot;);\n\tthis.animate = this.getAttribute(\&quot;animate\&quot;,\&quot;no\&quot;);\n\tthis.retain = this.getAttribute(\&quot;retain\&quot;,\&quot;no\&quot;);\n\tthis.openAnimation = this.animate === \&quot;no\&quot; ? undefined : \&quot;open\&quot;;\n\tthis.closeAnimation = this.animate === \&quot;no\&quot; ? undefined : \&quot;close\&quot;;\n\t// Compute the title of the state tiddler and read it\n\tthis.stateTitle = this.state;\n\tthis.readState();\n\t// Construct the child widgets\n\tvar childNodes = this.isOpen ? this.parseTreeNode.children : [];\n\tthis.hasChildNodes = this.isOpen;\n\tthis.makeChildWidgets(childNodes);\n};\n\n/*\nRead the state tiddler\n*/\nRevealWidget.prototype.readState = function() {\n\t// Read the information from the state tiddler\n\tvar state = this.stateTitle ? this.wiki.getTextReference(this.stateTitle,this[\&quot;default\&quot;],this.getVariable(\&quot;currentTiddler\&quot;)) : this[\&quot;default\&quot;];\n\tswitch(this.type) {\n\t\tcase \&quot;popup\&quot;:\n\t\t\tthis.readPopupState(state);\n\t\t\tbreak;\n\t\tcase \&quot;match\&quot;:\n\t\t\tthis.readMatchState(state);\n\t\t\tbreak;\n\t\tcase \&quot;nomatch\&quot;:\n\t\t\tthis.readMatchState(state);\n\t\t\tthis.isOpen = !this.isOpen;\n\t\t\tbreak;\n\t\tcase \&quot;lt\&quot;:\n\t\t\tthis.readMatchStatelt(state);\n\t\t\tbreak;\n\t\tcase \&quot;gt\&quot;:\n\t\t\tthis.readMatchStategt(state);\n\t\t\tbreak;\n\t\tcase \&quot;lteq\&quot;:\n\t\t\tthis.readMatchStategt(state);\n\t\t\tthis.isOpen = !this.isOpen;\n\t\t\tbreak;\n\t\tcase \&quot;gteq\&quot;:\n\t\t\tthis.readMatchStatelt(state);\n\t\t\tthis.isOpen = !this.isOpen;\n\t\t\tbreak;\n\t}\n};\n\nRevealWidget.prototype.compareStateText = function(state) {\n\tvar result = state.localeCompare(this.text, undefined, {numeric: true, sensitivity: 'case'});\n\treturn result;\n};\nRevealWidget.prototype.readMatchState = function(state) {\n\tthis.isOpen = (this.compareStateText(state) == 0)?true:false;\n};\nRevealWidget.prototype.readMatchStatelt = function(state) {\n\tthis.isOpen = (this.compareStateText(state) &lt; 0)?true:false;\n};\nRevealWidget.prototype.readMatchStategt = function(state) {\n\tthis.isOpen = (this.compareStateText(state) &gt; 0)?true:false;\n};\n\nRevealWidget.prototype.readPopupState = function(state) {\n\tvar popupLocationRegExp = /^\\((-?[0-9\\.E]+),(-?[0-9\\.E]+),(-?[0-9\\.E]+),(-?[0-9\\.E]+)\\)$/,\n\t\tmatch = popupLocationRegExp.exec(state);\n\t// Check if the state matches the location regexp\n\tif(match) {\n\t\t// If so, we're open\n\t\tthis.isOpen = true;\n\t\t// Get the location\n\t\tthis.popup = {\n\t\t\tleft: parseFloat(match[1]),\n\t\t\ttop: parseFloat(match[2]),\n\t\t\twidth: parseFloat(match[3]),\n\t\t\theight: parseFloat(match[4])\n\t\t};\n\t} else {\n\t\t// If not, we're closed\n\t\tthis.isOpen = false;\n\t}\n};\n\n/*\nSelectively refreshes the widget if needed. Returns true if the widget or any of its children needed re-rendering\n*/\nRevealWidget.prototype.refresh = function(changedTiddlers) {\n\tvar changedAttributes = this.computeAttributes();\n\tif(changedAttributes.state || changedAttributes.type || changedAttributes.text || changedAttributes.position || changedAttributes[\&quot;default\&quot;] || changedAttributes.animate) {\n\t\tthis.refreshSelf();\n\t\treturn true;\n\t} else {\n\t\tvar refreshed = false,\n\t\t\tcurrentlyOpen = this.isOpen;\n\t\tthis.readState();\n\t\tif(this.isOpen !== currentlyOpen) {\n\t\t\tif(this.retain === \&quot;yes\&quot;) {\n\t\t\t\tthis.updateState();\n\t\t\t} else {\n\t\t\t\tthis.refreshSelf();\n\t\t\t\trefreshed = true;\n\t\t\t}\n\t\t}\n\t\treturn this.refreshChildren(changedTiddlers) || refreshed;\n\t}\n};\n\n/*\nCalled by refresh() to dynamically show or hide the content\n*/\nRevealWidget.prototype.updateState = function() {\n\t// Read the current state\n\tthis.readState();\n\t// Construct the child nodes if needed\n\tvar domNode = this.domNodes[0];\n\tif(this.isOpen &amp;&amp; !this.hasChildNodes) {\n\t\tthis.hasChildNodes = true;\n\t\tthis.makeChildWidgets(this.parseTreeNode.children);\n\t\tthis.renderChildren(domNode,null);\n\t}\n\t// Animate our DOM node\n\tif(!domNode.isTiddlyWikiFakeDom &amp;&amp; this.type === \&quot;popup\&quot; &amp;&amp; this.isOpen) {\n\t\tthis.positionPopup(domNode);\n\t\t$tw.utils.addClass(domNode,\&quot;tc-popup\&quot;); // Make sure that clicks don't dismiss popups within the revealed content\n\n\t}\n\tif(this.isOpen) {\n\t\tdomNode.removeAttribute(\&quot;hidden\&quot;);\n        $tw.anim.perform(this.openAnimation,domNode);\n\t} else {\n\t\t$tw.anim.perform(this.closeAnimation,domNode,{callback: function() {\n\t\t\tdomNode.setAttribute(\&quot;hidden\&quot;,\&quot;true\&quot;);\n        }});\n\t}\n};\n\nexports.reveal = RevealWidget;\n\n})();\n&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;title&quot;: &quot;$:/plugins/tesseract/reveal-Ext/reveal.js&quot;,
+            &quot;revision&quot;: &quot;1&quot;,
             &quot;module-type&quot;: &quot;widget&quot;,
-            &quot;modified&quot;: &quot;20180305152108396&quot;
+            &quot;modified&quot;: &quot;20180309092410601&quot;,
+            &quot;created&quot;: &quot;20180226095134521&quot;,
+            &quot;bag&quot;: &quot;default&quot;
         },
         &quot;$:/plugins/tesseract/reveal-Ext/Readme&quot;: {
             &quot;created&quot;: &quot;20180226101150594&quot;,
@@ -9209,14 +9254,14 @@ $src$
 <div created="20180218191336489" modified="20180221132307391" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/Action-JSONtid">
 <pre>no</pre>
 </div>
-<div created="20180305152630643" modified="20180305152630643" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/attributes">
-<pre>yes</pre>
+<div created="20180305152630643" modified="20180309092455586" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/attributes">
+<pre>no</pre>
 </div>
 <div created="20180214232956136" modified="20180215004500966" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/ExtendedInfo">
 <pre>no</pre>
 </div>
-<div created="20180305152437140" modified="20180305152437141" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/reveal-Ext">
-<pre>yes</pre>
+<div created="20180305152437140" modified="20180309092508149" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/reveal-Ext">
+<pre>no</pre>
 </div>
 <div created="20180221132436942" modified="20180305152421539" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/sortan">
 <pre>no</pre>
@@ -9224,11 +9269,23 @@ $src$
 <div created="20180215004327478" modified="20180221132434016" title="$:/state/popup-$:/state/plugin-info-77467299-$:/plugins/tesseract/uuid">
 <pre>no</pre>
 </div>
-<div created="20180305152130661" modified="20180305152135881" title="$:/state/SampleReveal1">
+<div created="20180305152130661" modified="20180309092611317" title="$:/state/SampleReveal1">
 <pre>99</pre>
 </div>
-<div created="20170105060742729" modified="20180218190351954" title="$:/state/tab--1498284803">
-<pre>$:/core/ui/AdvancedSearch/Filter</pre>
+<div created="20180309093903969" modified="20180309093903969" title="$:/state/SampleRevealGTEQwithNumericals">
+<pre>99</pre>
+</div>
+<div created="20180309093906562" modified="20180309093906562" title="$:/state/SampleRevealLessthanWithNumericals">
+<pre>101</pre>
+</div>
+<div created="20180309093902421" modified="20180309093902421" title="$:/state/SampleRevealLTEQwithNumericals">
+<pre>101</pre>
+</div>
+<div created="20180309093858587" modified="20180309093858587" title="$:/state/SampleRevealNoMatchWithText">
+<pre>Apple</pre>
+</div>
+<div created="20170105060742729" modified="20180309093354235" title="$:/state/tab--1498284803">
+<pre>$:/core/ui/AdvancedSearch/Shadows</pre>
 </div>
 <div created="20170105060055786" modified="20170105062353137" title="$:/state/tab--1963855381">
 <pre>$:/core/ui/ControlPanel/Theme</pre>
@@ -9236,13 +9293,13 @@ $src$
 <div created="20170105060051269" modified="20180305152415755" title="$:/state/tab-1749438307">
 <pre>$:/plugins/ahahn/tinka/controlPanelExtension</pre>
 </div>
-<div created="20170105061629445" modified="20180305152601607" title="$:/state/tab/sidebar--1835078512">
-<pre>TableOfContents</pre>
+<div created="20170105061629445" modified="20180309092517207" title="$:/state/tab/sidebar--1835078512">
+<pre>$:/core/ui/SideBar/Open</pre>
 </div>
 <div created="20170105061321393" modified="20170105061321393" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/PageControls</pre>
 </div>
-<div list="MyButtonAttributesAction [[Attributes Parameter]] [[Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget]] $:/AdvancedSearch dragSnippetTitle [[Import Resolution]] [[UncheckActions: Adding Uncheck actions to checkbox widget]] $:/plugins/tesseract/dragSnippetTitle/Readme $:/Import [[Simple for-loop macro]] $:/tesseract/modules/filters/sortan.js" title="$:/StoryList">
+<div list="GreaterthanWithNumericals GTEQwithAlphaNum GTEQwithAlphaNum2 GTEQwithNumericals GTEQwithText GTEQwithText2 GTwithText LessthanWithNumericals LTEQwithNumericals MatchwithText NoMatchWithText CaseSensitivity [[Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20170105060159398" modified="20170117111211968" tags="$:/tags/Stylesheet" title="$:/Styles/Empty">
@@ -9408,8 +9465,8 @@ pre {
 	padding: 15px;
 }</pre>
 </div>
-<div created="20170105060745201" modified="20180305150039779" title="$:/temp/advancedsearch">
-<pre></pre>
+<div created="20170105060745201" modified="20180309093358954" title="$:/temp/advancedsearch">
+<pre>viewtempla</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -9466,8 +9523,8 @@ pre {
 <div created="20180218191324086" modified="20180218191324086" result="false" title="$:/temp/tinka/CreateVars">
 <pre></pre>
 </div>
-<div created="20180214233005468" modified="20180221132459429" title="$:/temp/tinka/search">
-<pre>read</pre>
+<div created="20180214233005468" modified="20180309092448006" title="$:/temp/tinka/search">
+<pre></pre>
 </div>
 <div created="20170105060053130" modified="20170105060053130" title="$:/theme">
 <pre>$:/themes/tiddlywiki/vanilla</pre>
@@ -9854,6 +9911,22 @@ renders as:
 
  &lt;$button attributes=&quot;MyButtonAttributesAction&quot;&gt;Change Site Title&lt;/$button&gt;</pre>
 </div>
+<div bag="default" created="20180309090838470" modified="20180309092812015" revision="0" tags="RevealExt" title="CaseSensitivity" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Apple apple gt apple&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealCaseSensitivity&quot; setTo=&quot;Apple&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealCaseSensitivity&quot; setTo=&quot;apple&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gt&quot; state=&quot;$:/state/SampleRevealCaseSensitivity&quot; text=&quot;apple&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+
+
+</pre>
+</div>
 <div created="20180217173255783" modified="20180217173418107" tags="" title="Disappearing modal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;This modal will disappear in 3 seconds on its own!&quot;, { buttons: false,   timer: 3000, });</pre>
 </div>
@@ -9912,6 +9985,112 @@ See the [[control panel|$:/ControlPanel]] for more options.
 
 @@color:orangered; This is a slightly modified empty wiki, adding a few options I need always and a few style changes@@</pre>
 </div>
+<div bag="default" created="20180309061359853" modified="20180309092652939" revision="0" tags="RevealExt" title="GreaterthanWithNumericals" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev 101 99 gt 100&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealGreaterthanWithNumericals&quot; setTo=&quot;101&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGreaterthanWithNumericals&quot; setTo=&quot;99&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gt&quot; state=&quot;$:/state/SampleRevealGreaterthanWithNumericals&quot; text=&quot;100&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+</pre>
+</div>
+<div bag="default" created="20180309084825708" modified="20180309092735936" revision="0" tags="RevealExt" title="GTEQwithAlphaNum" type="text/vnd.tiddlywiki">
+<pre>```
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; setTo=&quot;Apple 9&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; setTo=&quot;Apple 1&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; text=&quot;Apple 5&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+```
+
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; setTo=&quot;Apple 9&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; setTo=&quot;Apple 1&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealGTEQwithAlphaNum&quot; text=&quot;Apple 5&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309090326775" modified="20180309093938868" revision="0" tags="RevealExt" title="GTEQwithAlphaNum2" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev 'Apple 5' 'Apple 1' gteq 'Apple 5'&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum 2&quot; setTo=&quot;Apple 5&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithAlphaNum 2&quot; setTo=&quot;Apple 1&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealGTEQwithAlphaNum 2&quot; text=&quot;Apple 5&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309062722454" modified="20180309092704630" revision="0" tags="RevealExt" title="GTEQwithNumericals" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev 100 99 gteq 100&gt;&gt;
+
+
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithNumericals&quot; setTo=&quot;100&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithNumericals&quot; setTo=&quot;99&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealGTEQwithNumericals&quot; text=&quot;100&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309084236217" modified="20180309092722523" revision="0" tags="RevealExt" title="GTEQwithText" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Apple Able gteq Apple&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealNew Tiddler&quot; setTo=&quot;Apple&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealNew Tiddler&quot; setTo=&quot;Able&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealNew Tiddler&quot; text=&quot;Apple&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309084646764" modified="20180309092729222" revision="0" tags="RevealExt" title="GTEQwithText2" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Aztec Able gteq Apple&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithText2&quot; setTo=&quot;Aztec&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTEQwithText2&quot; setTo=&quot;Able&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gteq&quot; state=&quot;$:/state/SampleRevealGTEQwithText2&quot; text=&quot;Apple&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309063354437" modified="20180309092716567" revision="0" tags="RevealExt" title="GTwithText" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Chair Apple gt Balloon&gt;&gt;
+
+
+
+&lt;$button set=&quot;$:/state/SampleRevealGTwithText&quot; setTo=&quot;Chair&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealGTwithText&quot; setTo=&quot;Apple&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;gt&quot; state=&quot;$:/state/SampleRevealGTwithText&quot; text=&quot;Balloon&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+</pre>
+</div>
 <div created="20180301084542076" modified="20180301084817992" tags="TableOfContents" title="Import Resolution">
 <pre>!!! __''Install''__
 
@@ -9921,6 +10100,47 @@ See the [[control panel|$:/ControlPanel]] for more options.
 !!! __''Introduction''__
 
  In case the tiddler already exists while importing, it ''auto enumerates'' the title in existing TW protocol and sets the'' original title as caption''</pre>
+</div>
+<div bag="default" created="20180309062601743" modified="20180309092658922" revision="0" tags="RevealExt" title="LessthanWithNumericals" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev 99 101 lt 100&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealLessthanWithNumericals&quot; setTo=&quot;99&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealLessthanWithNumericals&quot; setTo=&quot;101&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;lt&quot; state=&quot;$:/state/SampleRevealLessthanWithNumericals&quot; text=&quot;100&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309062912615" modified="20180309092710702" revision="0" tags="RevealExt" title="LTEQwithNumericals" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev 100 101 lteq 100&gt;&gt;
+
+
+&lt;$button set=&quot;$:/state/SampleRevealLTEQwithNumericals&quot; setTo=&quot;100&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealLTEQwithNumericals&quot; setTo=&quot;101&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;lteq&quot; state=&quot;$:/state/SampleRevealLTEQwithNumericals&quot; text=&quot;100&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div bag="default" created="20180309090632759" modified="20180309092749373" revision="0" tags="RevealExt" title="MatchwithText" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Apple Mango match Apple&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealMatchwithText&quot; setTo=&quot;Apple&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealMatchwithText&quot; setTo=&quot;Mango&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;match&quot; state=&quot;$:/state/SampleRevealMatchwithText&quot; text=&quot;Apple&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+</pre>
 </div>
 <div created="20180217170023370" modified="20180217173706919" tags="" title="More things to do with Attributes Parameter">
 <pre>More interesting things can be don with attributes parameter. One of them is [ext[Sweetalerts|https://sweetalert.js.org/]]. 
@@ -9981,7 +10201,20 @@ onclick: alert(&quot;hmm, that seems to have worked&quot;)</pre>
 <div created="20180217172937383" modified="20180217173003941" tags="" title="MyButtonAttributesSwal" type="application/x-tiddler-dictionary">
 <pre>onclick: swal(&quot;Hello there&quot;)</pre>
 </div>
-<div created="20180226101840024" modified="20180226102138938" tags="TableOfContents" title="Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget">
+<div bag="default" created="20180309090722929" modified="20180309092756506" revision="0" tags="RevealExt" title="NoMatchWithText" type="text/vnd.tiddlywiki">
+<pre>&lt;&lt;rev Mango Apple nomatch Apple&gt;&gt;
+
+&lt;$button set=&quot;$:/state/SampleRevealNoMatchWithText&quot; setTo=&quot;Mango&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleRevealNoMatchWithText&quot; setTo=&quot;Apple&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;nomatch&quot; state=&quot;$:/state/SampleRevealNoMatchWithText&quot; text=&quot;Apple&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;</pre>
+</div>
+<div created="20180226101840024" modified="20180309093845926" tags="TableOfContents" title="Reveal-Extended: Adding &lt;,&gt;,&lt;=,&gt;= types to reveal widget">
 <pre>!!! __''Install''__
 
 &lt;&lt;install $:/plugins/tesseract/reveal-Ext&gt;&gt;
@@ -10020,7 +10253,31 @@ renders as
 ! This is the revealed content
 And this is some text
 
-&lt;/$reveal&gt;</pre>
+&lt;/$reveal&gt;
+
+&lt;$list filter=&quot;[tag[RevealExt]sortby[GreaterthanWithNumericals LessthanWithNumericals GTEQwithNumericals LTEQwithNumericals GTwithText GTEQwithText GTEQwithText2 GTEQwithAlphaNum GTEQwithAlphaNum2 CaseSensitivity]]&quot;&gt;
+
+''&lt;&lt;currentTiddler&gt;&gt;''
+
+{{||$:/core/ui/ViewTemplate/body}}</pre>
+</div>
+<div bag="default" created="20180309061448519" modified="20180309093045925" revision="0" tags="$:/tags/Macro" title="RevealExt Examples Macro" type="text/vnd.tiddlywiki">
+<pre>\define rev(showValue,hideValue,type,text)
+
+```
+&lt;$button set=&quot;$:/state/SampleReveal$(currentTiddler)$&quot; setTo=&quot;$showValue$&quot;&gt;Show me&lt;/$button&gt;
+&lt;$button set=&quot;$:/state/SampleReveal$(currentTiddler)$&quot; setTo=&quot;$hideValue$&quot;&gt;Hide me&lt;/$button&gt;
+
+&lt;$reveal type=&quot;$type$&quot; state=&quot;$:/state/SampleReveal$(currentTiddler)$&quot; text=&quot;$text$&quot;&gt;
+
+! This is the revealed content
+And this is some text
+
+&lt;/$reveal&gt;
+
+```
+
+\end</pre>
 </div>
 <div created="20180225013631065" modified="20180225015548076" tags="TableOfContents" title="Simple for-loop macro">
 <pre>!!! __''Install''__
