@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- The following comment is called a MOTW comment and is necessary for the TiddlyIE Internet Explorer extension -->
-<!-- saved from url=(0021)https://tiddlywiki.com -->
+<!-- saved from url=(0021)https://tiddlywiki.com -->
 <html>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -8730,7 +8730,7 @@ Error message and password prompt
 <div title="$:/isEncrypted">
 <pre>no</pre>
 </div>
-<div author="Riz" core-version="5.1.16" created="20180824091547423" description="Snapshot: Timestamped backups" list="readme" modified="20180824091558164" plugin-type="plugin" title="$:/plugins/tesseract/snapshot" type="application/json" version="1.0.3">
+<div author="Riz" bag="default" core-version="5.1.16" created="20180824091547423" description="Snapshot: Timestamped backups" list="readme" modified="20180824091558164" plugin-type="plugin" revision="1" title="$:/plugins/tesseract/snapshot" type="application/json" version="1.0.5">
 <pre>{
     &quot;tiddlers&quot;: {
         &quot;$:/core/ui/ControlPanel/Saving/Snapshot&quot;: {
@@ -8742,12 +8742,12 @@ Error message and password prompt
             &quot;caption&quot;: &quot;Snapshot&quot;
         },
         &quot;$:/core/modules/savers/tiddlyfoxBackup.js&quot;: {
-            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/savers/tiddlyBackup.js\ntype: application/javascript\nmodule-type: saver\n\nHandles saving changes via the TiddlyFox file extension\n\n\\*/\n(function() {\n\n    /*jslint node: true, browser: true */\n    /*global $tw: false, netscape: false, Components: false */\n    \&quot;use strict\&quot;;\n\n    var TiddlyBackup = function(wiki) {};\n\n    TiddlyBackup.prototype.save = function(text, method, callback) {\n        var messageBox = document.getElementById(\&quot;tiddlyfox-message-box\&quot;);\n        if (messageBox) {\n            // Get the pathname of this document\n            var windowlocation = document.location.toString().split(\&quot;#\&quot;)[0];\n            var backuplocation = $tw.wiki.getTiddlerText(\&quot;$:/config/Snapshot/BackupLocation\&quot;);\n            var filename = window.location.pathname.split(\&quot;/\&quot;).slice(-1)[0];\n            var pathname;\n            if (typeof backuplocation !== \&quot;undefined\&quot; &amp;&amp; backuplocation !== \&quot;\&quot;) {\n                if (backuplocation.substr(-1) != '/') backuplocation += '/';\n                pathname = backuplocation + filename;\n            } else {\n                pathname = windowlocation;\n                // Replace file://localhost/ with file:///\n                if (pathname.indexOf(\&quot;file://localhost/\&quot;) === 0) {\n                    pathname = \&quot;file://\&quot; + pathname.substr(16);\n                }\n                // Windows path file:///x:/blah/blah --&gt; x:\\blah\\blah\n                if (/^file\\:\\/\\/\\/[A-Z]\\:\\//i.test(pathname)) {\n                    // Remove the leading slash and convert slashes to backslashes\n                    pathname = pathname.substr(8).replace(/\\//g, \&quot;\\\\\&quot;);\n                    // Firefox Windows network path file://///server/share/blah/blah --&gt; //server/share/blah/blah\n                } else if (pathname.indexOf(\&quot;file://///\&quot;) === 0) {\n                    pathname = \&quot;\\\\\\\\\&quot; + unescape(pathname.substr(10)).replace(/\\//g, \&quot;\\\\\&quot;);\n                    // Mac/Unix local path file:///path/path --&gt; /path/path\n                } else if (pathname.indexOf(\&quot;file:///\&quot;) === 0) {\n                    pathname = unescape(pathname.substr(7));\n                    // Mac/Unix local path file:/path/path --&gt; /path/path\n                } else if (pathname.indexOf(\&quot;file:/\&quot;) === 0) {\n                    pathname = unescape(pathname.substr(5));\n                    // Otherwise Windows networth path file://server/share/path/path --&gt; \\\\server\\share\\path\\path\n                } else {\n                    pathname = \&quot;\\\\\\\\\&quot; + unescape(pathname.substr(7)).replace(new RegExp(\&quot;/\&quot;, \&quot;g\&quot;), \&quot;\\\\\&quot;);\n                }\n            }\n            // Create the message element and put it in the message box\n            var message = document.createElement(\&quot;div\&quot;);\n\n            var df = $tw.utils.formatDateString(new Date(), $tw.wiki.getTiddlerText(\&quot;$:/config/Snapshot/SuffixFormat\&quot;) || \&quot;0DD-0MM-YYYY--0hh-0mm-0ss\&quot;);\n            pathname = pathname.substring(0, pathname.lastIndexOf(\&quot;.\&quot;)) + '--' + df + pathname.substring(pathname.lastIndexOf(\&quot;.\&quot;));\n            message.setAttribute(\&quot;data-tiddlyfox-path\&quot;, decodeURIComponent(pathname));\n            message.setAttribute(\&quot;data-tiddlyfox-content\&quot;, text);\n            messageBox.appendChild(message);\n            // Add an event handler for when the file has been saved\n            message.addEventListener(\&quot;tiddlyfox-have-saved-file\&quot;, function(event) {\n                callback(null);\n            }, false);\n            // Create and dispatch the custom event to the extension\n            var event = document.createEvent(\&quot;Events\&quot;);\n            event.initEvent(\&quot;tiddlyfox-save-file\&quot;, true, false);\n            message.dispatchEvent(event);\n            return true;\n        } else {\n            return false;\n        }\n    };\n\n    /*\n    Information about this saver\n    */\n    TiddlyBackup.prototype.info = {\n        name: \&quot;tiddlyfox\&quot;,\n        priority: 1500,\n        capabilities: [\&quot;backup\&quot;]\n    };\n\n    /*\n    Static method that returns true if this saver is capable of working\n    */\n    exports.canSave = function(wiki) {\n        return true;\n    };\n\n    /*\n    Create an instance of this saver\n    */\n    exports.create = function(wiki) {\n        return new TiddlyBackup(wiki);\n    };\n\n})();&quot;,
+            &quot;text&quot;: &quot;/*\\\ntitle: $:/core/modules/savers/tiddlyBackup.js\ntype: application/javascript\nmodule-type: saver\n\nHandles saving changes via the TiddlyFox file extension\n\n\\*/\n(function() {\n\n    /*jslint node: true, browser: true */\n    /*global $tw: false, netscape: false, Components: false */\n    \&quot;use strict\&quot;;\n\n    var TiddlyBackup = function(wiki) {};\n\n    function cleanPath(pathname) {\n        // Replace file://localhost/ with file:///\n        if (pathname.indexOf(\&quot;file://localhost/\&quot;) === 0) {\n            pathname = \&quot;file://\&quot; + pathname.substr(16);\n        }\n        // Windows path file:///x:/blah/blah --&gt; x:\\blah\\blah\n        if (/^file\\:\\/\\/\\/[A-Z]\\:\\//i.test(pathname)) {\n            // Remove the leading slash and convert slashes to backslashes\n            pathname = pathname.substr(8).replace(/\\//g, \&quot;\\\\\&quot;);\n            // Firefox Windows network path file://///server/share/blah/blah --&gt; //server/share/blah/blah\n        } else if (pathname.indexOf(\&quot;file://///\&quot;) === 0) {\n            pathname = \&quot;\\\\\\\\\&quot; + unescape(pathname.substr(10)).replace(/\\//g, \&quot;\\\\\&quot;);\n            // Mac/Unix local path file:///path/path --&gt; /path/path\n        } else if (pathname.indexOf(\&quot;file:///\&quot;) === 0) {\n            pathname = unescape(pathname.substr(7));\n            // Mac/Unix local path file:/path/path --&gt; /path/path\n        } else if (pathname.indexOf(\&quot;file:/\&quot;) === 0) {\n            pathname = unescape(pathname.substr(5));\n            // Otherwise Windows networth path file://server/share/path/path --&gt; \\\\server\\share\\path\\path\n        } else {\n            pathname = \&quot;\\\\\\\\\&quot; + unescape(pathname.substr(7)).replace(new RegExp(\&quot;/\&quot;, \&quot;g\&quot;), \&quot;\\\\\&quot;);\n        }\n        return pathname;\n    }\n\n    function resolveRelativePath(base, relative) {\n        var stack = base.split(\&quot;/\&quot;),\n            parts = relative.split(\&quot;/\&quot;);\n        stack.pop(); // remove current file name (or empty string)\n        // (omit if \&quot;base\&quot; is the current folder without trailing slash)\n        for (var i = 0; i &lt; parts.length; i++) {\n            if (parts[i] == \&quot;.\&quot;)\n                continue;\n            if (parts[i] == \&quot;..\&quot;)\n                stack.pop();\n            else\n                stack.push(parts[i]);\n        }\n        return stack.join(\&quot;/\&quot;);\n    }\n\n    TiddlyBackup.prototype.save = function(text, method, callback) {\n        var messageBox = document.getElementById(\&quot;tiddlyfox-message-box\&quot;);\n        if (messageBox) {\n            // Get the pathname of this document\n            var windowlocation = document.location.toString().split(\&quot;#\&quot;)[0];\n            var backuplocation = $tw.wiki.getTiddlerText(\&quot;$:/config/Snapshot/BackupLocation\&quot;);\n            var filename = window.location.pathname.split(\&quot;/\&quot;).slice(-1)[0];\n            var pathname;\n            // Check if user has specified a backup location\n            if (typeof backuplocation !== \&quot;undefined\&quot; &amp;&amp; backuplocation !== \&quot;\&quot;) {\n                // Check if the back up location ends in a \&quot;/\&quot; and if NOT, add a \&quot;/\&quot;\n                if (backuplocation.substr(-1) != '/') backuplocation += '/';\n                if (backuplocation.charAt(0) == \&quot;.\&quot;) {\n                    // resolve the relative path\n                    backuplocation = resolveRelativePath(cleanPath(windowlocation), backuplocation);\n                }\n                pathname = backuplocation + filename;\n            } else {\n                pathname = cleanPath(windowlocation);\n\n            }\n            // Create the message element and put it in the message box\n            var message = document.createElement(\&quot;div\&quot;);\n\n            var df = $tw.utils.formatDateString(new Date(), $tw.wiki.getTiddlerText(\&quot;$:/config/Snapshot/SuffixFormat\&quot;) || \&quot;0DD-0MM-YYYY--0hh-0mm-0ss\&quot;);\n            pathname = pathname.substring(0, pathname.lastIndexOf(\&quot;.\&quot;)) + '--' + df + pathname.substring(pathname.lastIndexOf(\&quot;.\&quot;));\n            message.setAttribute(\&quot;data-tiddlyfox-path\&quot;, decodeURIComponent(pathname));\n            message.setAttribute(\&quot;data-tiddlyfox-content\&quot;, text);\n            messageBox.appendChild(message);\n            // Add an event handler for when the file has been saved\n            message.addEventListener(\&quot;tiddlyfox-have-saved-file\&quot;, function(event) {\n                callback(null);\n            }, false);\n            // Create and dispatch the custom event to the extension\n            var event = document.createEvent(\&quot;Events\&quot;);\n            event.initEvent(\&quot;tiddlyfox-save-file\&quot;, true, false);\n            message.dispatchEvent(event);\n            return true;\n        } else {\n            return false;\n        }\n    };\n\n    /*\n    Information about this saver\n    */\n    TiddlyBackup.prototype.info = {\n        name: \&quot;tiddlyfox\&quot;,\n        priority: 1500,\n        capabilities: [\&quot;backup\&quot;]\n    };\n\n    /*\n    Static method that returns true if this saver is capable of working\n    */\n    exports.canSave = function(wiki) {\n        return true;\n    };\n\n    /*\n    Create an instance of this saver\n    */\n    exports.create = function(wiki) {\n        return new TiddlyBackup(wiki);\n    };\n\n})();&quot;,
             &quot;type&quot;: &quot;application/javascript&quot;,
             &quot;title&quot;: &quot;$:/core/modules/savers/tiddlyfoxBackup.js&quot;,
             &quot;tags&quot;: &quot;&quot;,
             &quot;module-type&quot;: &quot;saver&quot;,
-            &quot;modified&quot;: &quot;20180824090829771&quot;,
+            &quot;modified&quot;: &quot;20180924034247998&quot;,
             &quot;created&quot;: &quot;20180820110234866&quot;
         },
         &quot;$:/core/modules/saver-handler.js&quot;: {
@@ -8762,10 +8762,10 @@ Error message and password prompt
         },
         &quot;$:/plugins/tesseract/snapshot/readme&quot;: {
             &quot;created&quot;: &quot;20180824091715150&quot;,
-            &quot;text&quot;: &quot;Provides a new message ''tm-backup-wiki'' which can be triggered by button widget/any message triggering widget. Once triggered, it will save a snapshot of the wiki with a timestamp in the format `0DD-0MM-YYYY--0hh-0mm-0ss` to the same location as the original file. The default location and timestamp format can be changed under Control Panel&gt;Saving&gt;Snapshot. Timestamps respect the format of `now` macro. \n\nAnd my wife hates me for it.&quot;,
+            &quot;text&quot;: &quot;Provides a new message ''tm-backup-wiki'' which can be triggered by button widget/any message triggering widget. Once triggered, it will save a snapshot of the wiki with a timestamp in the format `0DD-0MM-YYYY--0hh-0mm-0ss` to the same location as the original file. The default location and timestamp format can be changed under Control Panel&gt;Saving&gt;Snapshot. Timestamps respect the format of `now` macro. \n\nEg:\n\n```\n&lt;$button message=\&quot;tm-backup-wiki\&quot;&gt; Back me up &lt;/$button&gt;\n```\n\nAnd my wife hates me for it.&quot;,
             &quot;title&quot;: &quot;$:/plugins/tesseract/snapshot/readme&quot;,
             &quot;tags&quot;: &quot;&quot;,
-            &quot;modified&quot;: &quot;20180824092936282&quot;
+            &quot;modified&quot;: &quot;20180924034613226&quot;
         }
     }
 }</pre>
@@ -8794,7 +8794,7 @@ Error message and password prompt
 <div created="20180824145442602" modified="20180824145735492" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Info</pre>
 </div>
-<div list="$:/AdvancedSearch [[Snapshot plugin]]" title="$:/StoryList">
+<div list="$:/Import [[Snapshot plugin]]" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20180824150458089" modified="20180824150514978" title="$:/temp/advancedsearch">
@@ -8813,7 +8813,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///C:/Users/Shireen/Downloads/empty.html&quot;
+            &quot;text&quot;: &quot;file:///home/richie/Tesseract/pluginsandmacros/snapshot.html&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
@@ -8833,7 +8833,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/C:/Users/Shireen/Downloads/empty.html&quot;
+            &quot;text&quot;: &quot;/home/richie/Tesseract/pluginsandmacros/snapshot.html&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -8841,15 +8841,15 @@ Error message and password prompt
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;file://&quot;
+            &quot;text&quot;: &quot;null&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
-            &quot;text&quot;: &quot;1366&quot;
+            &quot;text&quot;: &quot;1920&quot;
         },
         &quot;$:/info/browser/screen/height&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/height&quot;,
-            &quot;text&quot;: &quot;768&quot;
+            &quot;text&quot;: &quot;1080&quot;
         }
     }
 }</pre>
